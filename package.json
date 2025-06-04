@@ -3,11 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://eightzees.github.io/portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build && cp -r dist docs",
     "lint": "eslint .",
     "rebuild": "vite build && rm -R docs && cp -r dist docs",
+    "deploy": "npm run build && main -d dist",
     "git": "git add . && git commit && git push origin main",
     "preview": "vite preview"
   },

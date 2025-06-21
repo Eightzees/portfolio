@@ -6,13 +6,15 @@ import Top from "./features/Top/Top";
 import Map from "./features/Map/Map";
 import Search from "./features/Search/Search";
 
+const REPOSITORY_NAME: String = "portfolio";
+
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="./" element={<Top />} />
-        <Route path="./search" element={<Search />} />
-        <Route path="./map" element={<Map />} />
+        <Route path={REPOSITORY_NAME + "/"} element={<Top />} />
+        <Route path={REPOSITORY_NAME + "/search"} element={<Search />} />
+        <Route path={REPOSITORY_NAME + "/map"} element={<Map />} />
       </Routes>
     </BrowserRouter>
   );

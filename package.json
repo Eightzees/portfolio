@@ -6,7 +6,7 @@
   "homepage": "https://eightzees.github.io/portfolio/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -r dist docs",
+    "build": "vite build && cp -r dist docs && cp build/index.html build/404.html",
     "lint": "eslint .",
     "rebuild": "vite build && rm -R docs && cp -r dist docs",
     "deploy": "npm run build && main -d dist",

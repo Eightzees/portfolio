@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Top.scss";
 import Heading from "../../components/Heading/Heading";
 import ButtonIconOnly from "../../components/ButtonIconOnly/ButtonIconOnly";
+import { REPOSITORY_NAME } from "../../constants";
 
 const Top = () => {
   const [isVisibleProfile, setIsVisibleProfile] = useState(false);
@@ -17,7 +18,7 @@ const Top = () => {
     <div className="Top">
       <ul className="Top__list">
         <li className="Top__listItem Top__listItem--search">
-          <a href="./search">
+          <a href={`${REPOSITORY_NAME}/search`}>
             <span>Yahoo!検索</span>
           </a>
         </li>

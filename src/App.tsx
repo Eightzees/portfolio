@@ -5,16 +5,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Top from "./features/Top/Top";
 import Map from "./features/Map/Map";
 import Search from "./features/Search/Search";
+import { REPOSITORY_NAME } from "./constants";
 
-const REPOSITORY_NAME: String = "portfolio";
+//const REPOSITORY_NAME: String = "portfolio";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={REPOSITORY_NAME + "/"} element={<Top />} />
-        <Route path={REPOSITORY_NAME + "/search"} element={<Search />} />
-        <Route path={REPOSITORY_NAME + "/map"} element={<Map />} />
+        <Route path={`${REPOSITORY_NAME}/`} element={<Top />} />
+        <Route path={`${REPOSITORY_NAME}/search`} element={<Search />} />
+        <Route path={`${REPOSITORY_NAME}/map`} element={<Map />} />
       </Routes>
     </BrowserRouter>
   );

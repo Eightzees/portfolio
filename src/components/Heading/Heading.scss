@@ -1,0 +1,19 @@
+@use "../../assets/styles/mixins";
+
+.Heading {
+  color: inherit;
+  font-weight: 700;
+
+  &:is(h1) {
+    @include mixins.font-size(24);
+  }
+  &:is(h2) {
+    @include mixins.font-size(16);
+  }
+  &:is(h3) {
+    @include mixins.font-size(14);
+  }
+  &:is(h4) {
+    @include mixins.font-size(12);
+  }
+}

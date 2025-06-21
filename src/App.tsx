@@ -1,20 +1,23 @@
 // import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Top from "./features/Top/Top";
 import Map from "./features/Map/Map";
 import Search from "./features/Search/Search";
+import { REPOSITORY_NAME } from "./constants";
+
+//const REPOSITORY_NAME: String = "portfolio";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
-        <Route path="/" element={<Top />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/map" element={<Map />} />
+        <Route path={"/"} element={<Top />} />
+        <Route path={"/search"} element={<Search />} />
+        <Route path={`${REPOSITORY_NAME}/map`} element={<Map />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

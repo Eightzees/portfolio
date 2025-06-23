@@ -18,7 +18,7 @@ const Top = () => {
     <div className="Top">
       <ul className="Top__list">
         <li className="Top__listItem Top__listItem--search">
-          <a href={"#search"}>
+          <a href="#search">
             <span>Yahoo!検索</span>
           </a>
         </li>

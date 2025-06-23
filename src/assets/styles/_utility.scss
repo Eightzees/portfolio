@@ -1,5 +1,7 @@
+@use "./_mixins.scss";
+
 .util-delimiter {
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
   margin: 0 0.4rem;
 }
 
@@ -13,4 +15,9 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.util-Text--caption {
+  color: var(--color-text-secondary);
+  @include mixins.font-size(12);
 }

@@ -58,10 +58,12 @@
           & > ol {
             counter-reset: index;
             padding-inline-start: 0;
+            margin: 0;
+
             & > li {
+              display: flex;
+              gap: 8px;
               counter-increment: index;
-              background-color: var(--color-background-content);
-              border-radius: 4px;
               padding: 12px;
 
               &::before {
@@ -77,7 +79,95 @@
                 border-radius: 50%;
                 @include mixins.font-weight(bold);
               }
+
+              & > span {
+                flex: 1;
+                height: 4px;
+                border-radius: 2px;
+                background-color: var(--color-motif-blue);
+                font-size: 0;
+                position: relative;
+
+                &::before,
+                &::after {
+                  content: "";
+                  display: block;
+                  width: 100%;
+                  position: absolute;
+                  left: 0;
+                  height: 4px;
+                  border-radius: 2px;
+                  background-color: var(--color-motif-blue);
+                }
+              }
             }
+          }
+        }
+
+        &Combo {
+          & > ol > li {
+            align-items: center;
+            background-color: var(--color-background-content);
+            border-radius: 4px;
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08))
+              drop-shadow(0 0 1px rgba(0, 0, 0, 0.02));
+
+            &:not(:first-of-type) {
+              margin-top: 4px;
+            }
+
+            & > span {
+              margin-top: 2px;
+
+              &::before {
+                top: -8px;
+              }
+              &::after {
+                top: 8px;
+              }
+            }
+          }
+        }
+
+        &Universal {
+          & > ol > li {
+            padding-bottom: 16px;
+
+            &:not(:first-of-type) {
+              border-top: 1px solid var(--color-border-blue);
+            }
+
+            & > span {
+              &::before {
+                top: 8px;
+              }
+              &::after {
+                top: 16px;
+              }
+            }
+          }
+        }
+
+        & > p {
+          @include mixins.font-size(24);
+          @include mixins.font-weight(bold);
+          color: var(--color-motif-blue);
+        }
+      }
+    }
+
+    &DD {
+      &Thumbnails {
+        & > ul {
+          display: flex;
+          gap: 4px;
+          border-radius: 8px;
+          overflow: hidden;
+
+          & > li {
+            flex: 1;
+            aspect-ratio: 1 / 1;
+            height: 100%;
           }
         }
       }

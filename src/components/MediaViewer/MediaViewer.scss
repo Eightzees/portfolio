@@ -1,0 +1,103 @@
+@use "../../assets/styles/mixins";
+
+.MediaViewer {
+  position: fixed;
+  inset: 0 0 0 0;
+  background-color: var(--color-background-inverted);
+
+  & &__header {
+    position: absolute;
+    inset: 0 0 auto 0;
+    padding: 16px 24px;
+    background-color: var(--color-background-scrim);
+    box-sizing: border-box;
+    z-index: 1;
+
+    &Indicator {
+      text-align: center;
+      color: var(--color-text-inverted);
+
+      &Index {
+        @include mixins.font-weight(bold);
+      }
+
+      & .util-delimiter {
+        color: var(--color-text-inverted);
+      }
+    }
+
+    & > .ButtonIconOnly {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+    }
+  }
+
+  & &__content {
+    position: relative;
+    height: 100%;
+
+    &Media {
+      position: absolute;
+      inset: 0 0 0 0;
+      overflow: hidden;
+
+      &Slider {
+        width: 100%;
+        height: 100%;
+        overflow: auto hidden;
+        scroll-snap-type: x mandatory;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &List {
+          display: flex;
+          width: 100%;
+          height: 100%;
+
+          &Item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+
+            &Image {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+
+    &Navigator {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: 16px;
+      //z-index: 1;
+    }
+  }
+
+  & &__footer {
+    position: absolute;
+    padding: 16px 24px 24px;
+    background-color: var(--color-background-scrim);
+    box-sizing: border-box;
+    z-index: 1;
+    inset: auto 0 0 0;
+    color: var(--color-text-inverted);
+    @include mixins.font-weight(bold);
+    text-align: center;
+  }
+}

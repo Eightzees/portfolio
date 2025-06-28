@@ -1,3 +1,4 @@
+@use "../../assets/styles/mixins";
 .Top {
   background-color: var(--color-background-content);
   padding: 40px;
@@ -19,6 +20,16 @@
 
       &--search {
         background: url(../../assets/images/top_search.png) no-repeat;
+        background-size: cover;
+      }
+
+      &--seikatsu {
+        background: url(../../assets/images/top_seikatsu.png) no-repeat;
+        background-size: cover;
+      }
+
+      &--chie {
+        background: url(../../assets/images/top_chie.png) no-repeat;
         background-size: cover;
       }
 
@@ -59,9 +70,11 @@
     margin-top: 16px;
 
     & > button {
-      font-weight: 700;
+      @include mixins.font-weight(bold);
+      text-decoration: underline;
 
       @media (hover: hover) {
+        text-decoration: none;
         &:hover {
           text-decoration: underline;
         }
@@ -83,6 +96,7 @@
 
       &Item {
         aspect-ratio: auto;
+        background-position: center;
 
         &--search {
           grid-column: 1 / 4;
@@ -141,6 +155,23 @@
           margin-top: 8px;
         }
       }
+    }
+  }
+
+  & &__wip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: var(--color-background-scrim);
+    color: var(--color-text-inverted);
+
+    & > p {
+      @include mixins.font-size(24);
+      @include mixins.font-weight(bold);
     }
   }
 }

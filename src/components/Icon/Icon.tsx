@@ -1,3 +1,5 @@
+import ArrowheadLeft from "./IconGlyphs/ArrowheadLeft";
+import ArrowheadRight from "./IconGlyphs/ArrowheadRight";
 import Cross from "./IconGlyphs/Cross";
 import classnames from "classnames";
 
@@ -6,7 +8,7 @@ import type { IconType } from "./IconType";
 import Hyphen from "./IconGlyphs/Hyphen";
 
 export interface IconProps {
-  color: "inverted" | "primary";
+  color: "inverted" | "default";
   size: "small" | "medium" | "large";
   type: IconType;
 }
@@ -14,8 +16,10 @@ export interface IconProps {
 const getIconType = (type: IconType) => {
   switch (type) {
     // case "arrowhead_down":
-    // case "arrowhead_left":
-    // case "arrowhead_right":
+    case "arrowhead_left":
+      return <ArrowheadLeft />;
+    case "arrowhead_right":
+      return <ArrowheadRight />;
     case "cross":
       return <Cross />;
     case "hyphen":

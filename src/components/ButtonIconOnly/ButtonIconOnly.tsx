@@ -1,20 +1,43 @@
+import classnames from "classnames";
 import Icon from "../Icon/Icon";
 import type { IconType } from "../Icon/IconType";
 import "./ButtonIconOnly.scss";
-import { createElement } from "react";
 
 export interface ButtonIconOnlyProps {
-  href?: string;
   iconType: IconType;
-  onClickHandler?: () => void;
+  isDisabled?: boolean;
+  isInverted?: boolean;
+  onClickHandler: () => void;
   text: string;
+  additionalClassName?: string;
 }
 
-const ButtonIconOnly: React.FC<ButtonIconOnlyProps> = (props) => {
+const ButtonIconOnly: React.FC<ButtonIconOnlyProps> = ({
+  iconType,
+  isDisabled = false,
+  isInverted = false,
+  onClickHandler,
+  text,
+  additionalClassName,
+}) => {
+  const classNames = classnames({
+    ButtonIconOnly: true,
+    "ButtonIconOnly--inverted": isInverted,
+    [`${additionalClassName}`]: additionalClassName,
+  });
+
   return (
-    <button className="ButtonIconOnly" onClick={props.onClickHandler}>
-      <Icon type={props.iconType} color="inverted" size="medium" />
-      <span className="util-Text--hidden">{props.text}</span>
+    <button
+      className={classNames}
+      onClick={onClickHandler}
+      disabled={isDisabled}
+    >
+      <Icon
+        type={iconType}
+        color={isInverted ? "inverted" : "default"}
+        size="medium"
+      />
+      <span className="util-Text--hidden">{text}</span>
     </button>
   );
 };

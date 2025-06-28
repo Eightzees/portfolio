@@ -8,6 +8,10 @@
   align-items: center;
   justify-content: center;
 
+  &--inverted {
+    background-color: var(--color-background-scrim);
+  }
+
   @media (hover: hover) {
     &:hover {
       opacity: 0.8;

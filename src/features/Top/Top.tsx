@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./Top.scss";
 import Heading from "../../components/Heading/Heading";
 import ButtonIconOnly from "../../components/ButtonIconOnly/ButtonIconOnly";
-import { REPOSITORY_NAME } from "../../constants";
 
-const Top = () => {
+interface TopProps {
+  isWip: boolean;
+}
+const Top = (props: TopProps) => {
   const [isVisibleProfile, setIsVisibleProfile] = useState(false);
 
   const openProfile = () => {
@@ -18,17 +20,17 @@ const Top = () => {
     <div className="Top">
       <ul className="Top__list">
         <li className="Top__listItem Top__listItem--search">
-          <a href={"#search"}>
+          <a href="#search">
             <span>Yahoo!検索</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--seikatsu">
-          <a href="./seikatsu">
+          <a href="#seikatsu">
             <span>Yahoo!生活メディア</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--chie">
-          <a href="./chie">
+          <a href="#chie">
             <span>Yahoo!知恵袋</span>
           </a>
         </li>
@@ -104,6 +106,11 @@ const Top = () => {
               onClickHandler={closeProfile}
             />
           </section>
+        </div>
+      )}
+      {props.isWip && (
+        <div className="Top__wip">
+          <p>Work in Progress</p>
         </div>
       )}
     </div>

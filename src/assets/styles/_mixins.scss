@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @mixin font-size($size) {
   font-size: $size + px;
   font-size: calc($size / 16) + rem;
@@ -16,8 +18,8 @@
   );
 
   $output: $weight;
-  @if map-has-key($weights, $weight) {
-    $output: map-get($weights, $weight);
+  @if map.has-key($weights, $weight) {
+    $output: map.get($weights, $weight);
   }
 
   font-weight: $output;

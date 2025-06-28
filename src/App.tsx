@@ -13,7 +13,7 @@ const App = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route path={"/"} element={<Top />} />
+        <Route path={"/"} element={<Top isWip={true} />} />
         <Route path={"/search"} element={<Search />} />
         <Route path={`${REPOSITORY_NAME}/map`} element={<Map />} />
       </Routes>

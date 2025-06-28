@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./MediaViewer.scss";
 import ButtonIconOnly from "../ButtonIconOnly/ButtonIconOnly";
 
@@ -20,8 +20,19 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
   const [selectedCaption, setSelectedCaption] = useState(
     props.mediaList[props.selectedIndex].caption
   );
+  const MediaViewerRef = useRef<HTMLDivElement>(null);
 
-  const updateIndex = useCallback((direction: "previous" | "next") => {}, []);
+  const updateIndex = useCallback((direction: "previous" | "next") => {
+    // update index
+  }, []);
+
+  useEffect(() => {
+    const contentWidth =
+      MediaViewerRef.current?.getBoundingClientRect().width ?? 0;
+    console.log({ contentWidth });
+    const scrollAmount = selectedIndex * contentWidth;
+    console.log({ scrollAmount });
+  }, [selectedIndex]);
 
   return (
     <div className="MediaViewer">
@@ -41,7 +52,7 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
         />
       </div>
 
-      <div className="MediaViewer__content">
+      <div className="MediaViewer__content" ref={MediaViewerRef}>
         <div className="MediaViewer__contentMedia">
           <div className="MediaViewer__contentMediaSlider">
             <ul className="MediaViewer__contentMediaSliderList">

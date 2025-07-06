@@ -15,15 +15,11 @@
 
   & &__contents {
     max-width: var(--size-maximum-width-content);
-    padding: 80px 8px 40px;
+    padding: 80px 24px 40px;
     margin: 0 auto;
 
-    & > .Heading {
-      padding: 0 16px;
-    }
-
     & > section {
-      padding: 24px 16px;
+      padding: 24px 0;
     }
 
     &Summary {

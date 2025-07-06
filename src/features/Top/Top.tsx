@@ -34,13 +34,13 @@ const Top = (props: TopProps) => {
             <span>Yahoo!知恵袋</span>
           </a>
         </li>
-        <li className="Top__listItem Top__listItem--promotion">
-          <a href="./promotion">
+        <li className="Top__listItem Top__listItem--pr">
+          <a href="#pr">
             <span>プロモーション案件</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--map">
-          <a href="./map">
+          <a href="#map">
             <span>Yahoo!地図</span>
           </a>
         </li>

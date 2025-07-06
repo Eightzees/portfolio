@@ -1,0 +1,61 @@
+@use "../../assets/styles/mixins";
+
+.Divider {
+  height: 12px;
+  margin: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  &::before,
+  &::after {
+    display: block;
+    content: "";
+    width: 8px;
+    height: 8px;
+  }
+
+  & > hr {
+    flex: 1;
+    height: 12px;
+    border: none;
+    position: relative;
+    display: flex;
+    gap: 76px;
+    align-items: center;
+
+    &::before,
+    &::after {
+      display: block;
+      content: "";
+      flex: 1;
+      height: 2px;
+      border-radius: 1px;
+    }
+  }
+
+  &--blue {
+    &::before,
+    &::after {
+      background: url(../../assets/images/divider/divider_end--blue.png)
+        no-repeat center;
+      background-size: 8px 8px;
+    }
+
+    &::after {
+      rotate: (180deg);
+    }
+
+    & > hr {
+      background: url(../../assets/images/divider/divider_center--blue.png)
+        no-repeat center;
+      background-size: 60px 12px;
+
+      &::before,
+      &::after {
+        background-color: var(--color-background-emphasized-blue);
+      }
+    }
+  }
+}

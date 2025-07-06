@@ -8,7 +8,14 @@ import type { IconType } from "./IconType";
 import Hyphen from "./IconGlyphs/Hyphen";
 
 export interface IconProps {
-  color: "inverted" | "default";
+  color:
+    | "blue"
+    | "brown"
+    | "green"
+    | "inverted"
+    | "orange"
+    | "primary"
+    | "yellow";
   size: "small" | "medium" | "large";
   type: IconType;
 }

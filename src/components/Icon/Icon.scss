@@ -20,10 +20,11 @@
       height: 16px;
     }
   }
-  &--default {
+
+  &--primary {
     svg {
       path {
-        fill: var(--color-text-tertiary);
+        fill: var(--color-text-primary);
       }
     }
   }

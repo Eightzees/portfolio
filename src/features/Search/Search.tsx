@@ -7,6 +7,7 @@ import imageDD03 from "../../assets/images/search/dd_03.png";
 import { useCallback, useState } from "react";
 import type { MediaList } from "../../components/MediaViewer/MediaViewer";
 import MediaViewer from "../../components/MediaViewer/MediaViewer";
+import Divider from "../../components/Divider/Divider";
 
 const Search = () => {
   const mediaListForDD: MediaList[] = [
@@ -62,6 +63,8 @@ const Search = () => {
             </li>
           </ul>
         </section>
+
+        <Divider color="blue" />
 
         <section className="Search__contentsTest">
           <Heading level={2} text="検索結果画面の改善と数値分析" />

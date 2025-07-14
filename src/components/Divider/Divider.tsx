@@ -1,8 +1,9 @@
+import type { ColorType } from "../../constants";
 import "./Divider.scss";
 import classnames from "classnames";
 
 export interface DividerProps {
-  color: "blue" | "brown" | "green" | "orange" | "yellow";
+  color: ColorType;
 }
 
 const Divider: React.FC<DividerProps> = (props) => {

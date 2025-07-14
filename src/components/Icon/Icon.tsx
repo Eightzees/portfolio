@@ -6,23 +6,29 @@ import classnames from "classnames";
 import "./Icon.scss";
 import type { IconType } from "./IconType";
 import Hyphen from "./IconGlyphs/Hyphen";
+import type { ColorType } from "../../constants";
+import ArrowheadDown from "./IconGlyphs/ArrowheadDown";
+import ArrowLeft from "./IconGlyphs/ArrowLeft";
+import ArrowDown from "./IconGlyphs/ArrowDown";
+import ArrowUpperRight from "./IconGlyphs/ArrowUpperRight";
 
 export interface IconProps {
-  color:
-    | "blue"
-    | "brown"
-    | "green"
-    | "inverted"
-    | "orange"
-    | "primary"
-    | "yellow";
+  color: ColorType | "inverted" | "primary";
   size: "small" | "medium" | "large";
   type: IconType;
 }
 
 const getIconType = (type: IconType) => {
   switch (type) {
-    // case "arrowhead_down":
+    case "arrow_down":
+      return <ArrowDown />;
+    case "arrow_left":
+      return <ArrowLeft />;
+    case "arrow_upper_right":
+      return <ArrowUpperRight />;
+
+    case "arrowhead_down":
+      return <ArrowheadDown />;
     case "arrowhead_left":
       return <ArrowheadLeft />;
     case "arrowhead_right":

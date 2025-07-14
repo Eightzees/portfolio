@@ -1,0 +1,64 @@
+@use "../../assets/styles/mixins";
+
+.Button {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @include mixins.font-size(16);
+  @include mixins.font-weight(bold);
+  color: var(--color-text-inverted);
+  border-radius: 8px;
+  text-decoration: none;
+  line-height: 1;
+
+  &--inline {
+    display: inline-flex;
+    padding: 0;
+    @include mixins.font-size(14);
+  }
+
+  &--blue {
+    background-color: var(--color-main-blue);
+
+    &.Button--inline {
+      color: var(--color-main-blue);
+      background-color: transparent;
+    }
+  }
+  &--brown {
+    background-color: var(--color-main-brown);
+    &.Button--inline {
+      color: var(--color-main-brown);
+      background-color: transparent;
+    }
+  }
+  &--green {
+    background-color: var(--color-main-green);
+    &.Button--inline {
+      color: var(--color-main-green);
+      background-color: transparent;
+    }
+  }
+  &--orange {
+    background-color: var(--color-main-orange);
+    &.Button--inline {
+      color: var(--color-main-orange);
+      background-color: transparent;
+    }
+  }
+  &--yellow {
+    background-color: var(--color-main-yellow);
+    &.Button--inline {
+      color: var(--color-main-yellow);
+      background-color: transparent;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

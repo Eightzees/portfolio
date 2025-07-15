@@ -20,10 +20,11 @@
       height: 16px;
     }
   }
-  &--default {
+
+  &--primary {
     svg {
       path {
-        fill: var(--color-text-tertiary);
+        fill: var(--color-text-primary);
       }
     }
   }
@@ -31,6 +32,41 @@
     svg {
       path {
         fill: var(--color-text-inverted);
+      }
+    }
+  }
+  &--blue {
+    svg {
+      path {
+        fill: var(--color-main-blue);
+      }
+    }
+  }
+  &--brown {
+    svg {
+      path {
+        fill: var(--color-main-brown);
+      }
+    }
+  }
+  &--green {
+    svg {
+      path {
+        fill: var(--color-main-green);
+      }
+    }
+  }
+  &--orange {
+    svg {
+      path {
+        fill: var(--color-main-orange);
+      }
+    }
+  }
+  &--yellow {
+    svg {
+      path {
+        fill: var(--color-main-yellow);
       }
     }
   }

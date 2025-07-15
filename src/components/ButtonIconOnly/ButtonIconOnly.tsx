@@ -34,7 +34,7 @@ const ButtonIconOnly: React.FC<ButtonIconOnlyProps> = ({
     >
       <Icon
         type={iconType}
-        color={isInverted ? "inverted" : "default"}
+        color={isInverted ? "inverted" : "primary"}
         size="medium"
       />
       <span className="util-Text--hidden">{text}</span>

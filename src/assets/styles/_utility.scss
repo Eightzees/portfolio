@@ -21,3 +21,8 @@
   color: var(--color-text-secondary);
   @include mixins.font-size(12);
 }
+
+.util-Text--highlighted {
+  @include mixins.font-weight(bold);
+  background-color: var(--color-background-emphasized-blue);
+}

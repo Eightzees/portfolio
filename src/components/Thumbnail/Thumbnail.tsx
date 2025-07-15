@@ -1,19 +1,25 @@
 import "./Thumbnail.scss";
+import classnames from "classnames";
 
 export interface ThumbnailProps {
   alt: string;
+  hasRoundedCorners?: boolean;
   imagePath: string;
   onClickHandler?: () => void;
-  ratio: "1/1" | "4/3" | "16/9";
+  ratio: "1/1" | "1/2" | "4/3" | "16/9";
   width: string;
 }
 
 const Thumbnail: React.FC<ThumbnailProps> = (props) => {
   const BodyElement = props.onClickHandler ? "button" : "div";
+  const classNames = classnames({
+    Thumbnail: true,
+    "Thumbnail--cornersRounded": props.hasRoundedCorners,
+  });
 
   return (
     <BodyElement
-      className="Thumbnail"
+      className={classNames}
       onClick={props.onClickHandler || undefined}
       style={{
         width: props.width,

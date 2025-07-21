@@ -3,7 +3,7 @@ import Icon from "../../components/Icon/Icon";
 import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import "./Search.scss";
 
-import imageDD03 from "../../assets/images/search/dd_03.png";
+import imageDD03 from "../../assets/images/search/dd_03.jpg";
 import { useCallback, useState } from "react";
 import type { MediaList } from "../../components/MediaViewer/MediaViewer";
 import MediaViewer from "../../components/MediaViewer/MediaViewer";

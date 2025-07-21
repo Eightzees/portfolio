@@ -1,6 +1,6 @@
 @use "../../assets/styles/mixins";
 
-.PR {
+.Chie {
   position: relative;
 
   &::before {
@@ -9,26 +9,14 @@
     position: absolute;
     width: 100%;
     height: 60px;
-    background: url(../../assets/images/pattern_pr.png) center repeat-x;
-    background-size: 372px 60px;
+    background: url(../../assets/images/pattern_chie.png) center repeat-x;
+    background-size: 305px 60px;
   }
 
   & &__contents {
     max-width: var(--size-maximum-width-content);
     padding: 80px 24px 40px;
     margin: 0 auto;
-
-    // & > section {
-    //   padding: 24px 0 40px;
-
-    //   & > .Heading {
-    //     margin-bottom: 24px;
-    //   }
-
-    //   & > p:not(:first-of-type) {
-    //     margin-top: 24px;
-    //   }
-    // }
 
     &Summary {
       padding: 24px 0 40px;
@@ -47,12 +35,28 @@
       }
     }
 
-    &Ghit,
-    &311,
-    &SatNav,
-    &Bonenkai,
-    &Yoshimotozaka {
-      padding: 32px 0 40px;
+    &Renewal {
+      padding: 40px 0;
+
+      & > .Heading {
+        margin-bottom: 24px;
+      }
+
+      & > p:not(:first-of-type) {
+        margin-top: 24px;
+      }
+
+      & > .Button {
+        margin-top: 24px;
+      }
+
+      &Image {
+        margin-top: 24px;
+      }
+    }
+
+    &Guideline {
+      padding: 40px 0;
 
       & > .Heading {
         margin-bottom: 24px;
@@ -83,10 +87,26 @@
       }
     }
 
+    &PoiEnd {
+      padding: 40px 0;
+
+      & > .Heading {
+        margin-bottom: 24px;
+      }
+
+      & > p:not(:first-of-type) {
+        margin-top: 24px;
+      }
+
+      & > .Button {
+        margin-top: 24px;
+      }
+    }
+
     &Rolls {
-      margin-top: 8px;
+      margin-top: 16px;
       padding: 16px;
-      background-color: var(--color-background-emphasized-orange);
+      background-color: var(--color-background-emphasized-brown);
 
       & > .Heading {
         margin-bottom: 0;
@@ -116,6 +136,6 @@
   }
 
   .util-Text--highlighted {
-    background-color: var(--color-background-emphasized-orange);
+    background-color: var(--color-background-emphasized-brown);
   }
 }

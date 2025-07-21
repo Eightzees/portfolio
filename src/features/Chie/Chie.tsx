@@ -1,9 +1,7 @@
 import Heading from "../../components/Heading/Heading";
 import Icon from "../../components/Icon/Icon";
-import Thumbnail from "../../components/Thumbnail/Thumbnail";
-import "./Map.scss";
+import "./Chie.scss";
 
-import imageBeforeAfter from "../../assets/images/map/before_after.png";
 import imageGuideline0 from "../../assets/images/map/guideline_colors.png";
 import imageGuideline1 from "../../assets/images/map/guideline_elevation.png";
 import imageGuideline2 from "../../assets/images/map/guideline_typography.png";
@@ -12,15 +10,15 @@ import imageComponents1 from "../../assets/images/map/components_button.png";
 import imageComponents2 from "../../assets/images/map/components_list.png";
 import imageComponents3 from "../../assets/images/map/components_snackbar.png";
 import imageComponents4 from "../../assets/images/map/components_tab.png";
-import thumbnailGuideline from "../../assets/images/map/thumbnail_guideline.png";
-import thumbnailComponents from "../../assets/images/map/thumbnail_components.png";
+import thumbnailChie from "../../assets/images/chie/thumbnail_chie.png";
+import thumbnailApp from "../../assets/images/chie/thumbnail_app.png";
 import { useCallback, useState } from "react";
 import type { MediaList } from "../../components/MediaViewer/MediaViewer";
 import MediaViewer from "../../components/MediaViewer/MediaViewer";
 import Divider from "../../components/Divider/Divider";
 import Button from "../../components/Button/Button";
 
-const Map = () => {
+const Chie = () => {
   const mediaListForGuideline: MediaList[] = [
     {
       imagePath: imageGuideline0,
@@ -108,18 +106,13 @@ const Map = () => {
   }, []);
 
   return (
-    <div className="Map">
-      <div className="Map__contents">
-        <Heading level={1} text="Yahoo!マップ" />
-        <section className="Map__contentsSummary">
+    <div className="Chie">
+      <div className="Chie__contents">
+        <Heading level={1} text="Yahoo!知恵袋" />
+        <section className="Chie__contentsSummary">
           <Heading level={2} text="経験したこと" />
-          <ul className="Map__contentsSummaryList">
-            <li className="Map__contentsSummaryListItem">
-              <Icon type="hyphen" size="medium" color="primary" />
-              <span>サービスリニューアル</span>
-            </li>
-
-            <li className="Map__contentsSummaryListItem">
+          <ul className="Chie__contentsSummaryList">
+            <li className="Chie__contentsSummaryListItem">
               <Icon type="hyphen" size="medium" color="primary" />
               <span>
                 UIデザイン<span className="util-delimiter">/</span>
@@ -127,84 +120,54 @@ const Map = () => {
                 コーディング
               </span>
             </li>
-            <li className="Map__contentsSummaryListItem">
+            <li className="Chie__contentsSummaryListItem">
               <Icon type="hyphen" size="medium" color="primary" />
-              <span>
-                デザインガイドライン策定
-                <span className="util-delimiter">/</span>
-                コーディングガイドライン策定
-              </span>
+              <span>UGCサービス運用</span>
             </li>
-            <li className="Map__contentsSummaryListItem">
+            <li className="Chie__contentsSummaryListItem">
               <Icon type="hyphen" size="medium" color="primary" />
-              <span>地図スタイル運用</span>
+              <span>アプリ向けUI・ビジュアル作成</span>
+            </li>
+            <li className="Chie__contentsSummaryListItem">
+              <Icon type="hyphen" size="medium" color="primary" />
+              <span>サービスリニューアル</span>
+            </li>
+            <li className="Chie__contentsSummaryListItem">
+              <Icon type="hyphen" size="medium" color="primary" />
+              <span>数値分析</span>
             </li>
           </ul>
         </section>
 
-        <Divider color="brown" />
+        <Divider color="yellow" />
 
-        <section className="Map__contentsRenewal">
-          <Heading
-            level={2}
-            text="Yahoo!地図（現Yahoo!マップ） フルリニューアル"
-          />
+        <section className="Chie__contentsManaging">
+          <Heading level={2} text="Yahoo!知恵袋運用・UI改善" />
           <p>
-            全社でUS
-            Yahoo!のシステムから脱却するプロジェクトが進行し、Yahoo!地図も対応する必要がありました。しかし長年放置されソースコードや環境も古かったため、もはや手を入れることが難しいということで
-            <span className="util-Text--highlighted">
-              フルスクラッチでリニューアル
-            </span>
-            することとなりました。同タイミングで地図のエンジンもゼンリンからMapBpx
-            に変更することになり、地図そのものの見た目や実装も含めて完全に新規開発の必要が発生しました。
+            Yahoo!知恵袋は誰でもわからないこと・疑問などを質問できるサービスです。
+            <br />
+            しかしながら実はトラフィックの多くは知りたいことを検索した結果、Yahoo!知恵袋で類似の質問を見つけて参照する「閲覧ユーザー」が大半。「質問ユーザー」と「回答ユーザー」を増やしてコンテンツ量を増大させることが課題でした。
           </p>
-          <div className="Map__contentsRenewalImage">
-            <img
-              src={imageBeforeAfter}
-              alt="Yahoo!地図 Before/ After"
-              width="100%"
-              height="auto"
-            />
-          </div>
           <p>
-            デザイナーとエンジニアのみが存在するプロジェクトだったため、かなり自由度は高かったものの、新しい地図エンジンとの格闘や旧環境が残した仕組みを継承する必要があったりと、旧環境を知るものがいない中でかなり重い作業をする羽目に。
-            旧Yahoo!地図の
-            <span className="util-Text--highlighted">
-              残すべき機能・削る機能・新規追加する機能の定義
-            </span>
-            を短期間で行う難しさは想像以上。
-            結果バックエンド実装以外はすべて携わるという経験をすることができました。
+            複雑な質問・回答・ベストアンサー決定のプロセスを見直したり、投稿フォームのUIを改善したり...
+            <br />
+            巨大なシステムであるため細かい部分から少しずつ取り組み、数値を見てブラッシュアップを繰り返しました。
           </p>
-          <Button
-            href="https://map.yahoo.co.jp/"
-            color="brown"
-            text="Yahoo!マップ"
-            iconRight="arrow_upper_right"
-          />
-        </section>
-
-        <Divider color="brown" />
-
-        <section className="Map__contentsGuideline">
-          <Heading level={2} text="Yahoo!地図 デザインガイドライン" />
-          <p>
-            短期間での開発であったため、ヴィジュアル作成とヴィジュアルの実装をほぼ並行して行いました。どちらも自分が主担当という強みを活かし、最初から実装を考慮したデザインシステムを検討し、実装しながら微調整していくことで、開発にかける時間を短縮することができました。
-          </p>
-          <div className="Map__contentsGuidelineImage">
+          <div className="Chie__contentsManagingImage">
             <button
               onClick={() => showMediaViewerForGuideline(0)}
-              className="Map__contentsGuidelineImageThumbnail"
+              className="Chie__contentsManagingImageThumbnail"
             >
               <img
-                src={thumbnailGuideline}
-                alt="Yahoo!地図のデザインガイドラインに関する画像"
+                src={thumbnailChie}
+                alt="Yahoo!知恵袋の画像"
                 width="100%"
                 height="auto"
               />
             </button>
-            <div className="Map__contentsGuidelineImageTrigger">
+            <div className="Chie__contentsManagingImageTrigger">
               <Button
-                color="brown"
+                color="yellow"
                 onClickHandler={() => showMediaViewerForGuideline(0)}
                 text="すべての画像を見る"
                 iconRight="arrow_upper_right"
@@ -212,27 +175,38 @@ const Map = () => {
               />
             </div>
           </div>
+        </section>
 
+        <Divider color="yellow" />
+
+        <section className="Chie__contentsApp">
+          <Heading level={2} text="Yahoo! JAPANアプリ向け知恵袋" />
           <p>
-            ただしひとたび運用が始まれば、誰がデザイン調整や実装を行うかわからないので、「誰でも同じアウトプットができる」「デザインするときに迷わない」ことを指針としてルールを明文化したり、デザインパーツも必要なバリエーションは網羅しつつも極力シンプルになるように考慮しました。
-            地図のための独特なUIパーツを考え出す必要もあり、UIが複雑化しがち。そのためデザインパーツ・モジュール・スタイルはライブラリ化し、参照すれば手軽にYahoo!地図の画面作成を行えるような仕組みを整えました。
+            Yahoo！ JAPAN
+            アプリ内部にYahoo!知恵袋の機能を保持したいという依頼がありました。Yahoo!知恵袋は（当時）紫と黄色をキーカラーとしたサービスでしたが、Yahoo!
+            JAPAN
+            は青とピンクがベース。またYahoo!知恵袋の大量で複雑なコンテンツのすべてをもたせる必要はないということで、必要最低限の要素をピックアップしUIとビジュアルを変更しました。
           </p>
-          <div className="Map__contentsGuidelineImage">
+          <p>
+            Yahoo! JAPANアプリ側のデザイントーンと要望をヒアリングし、Yahoo!
+            JAPANアプリに内包されても馴染むように、（スケジュールの都合上）かなり短期間で調整しました。
+          </p>
+          <div className="Chie__contentsAppImage">
             <button
-              onClick={() => showMediaViewerForComponents(0)}
-              className="Map__contentsGuidelineImageThumbnail"
+              onClick={() => showMediaViewerForGuideline(0)}
+              className="Chie__contentsAppImageThumbnail"
             >
               <img
-                src={thumbnailComponents}
-                alt="Yahoo!地図のUIコンポーネント一覧の画像"
+                src={thumbnailApp}
+                alt="Yahoo! JAPAN アプリ向けのYahoo!知恵袋の画像"
                 width="100%"
                 height="auto"
               />
             </button>
-            <div className="Map__contentsGuidelineImageTrigger">
+            <div className="Map__contentsAppImageTrigger">
               <Button
-                color="brown"
-                onClickHandler={() => showMediaViewerForComponents(0)}
+                color="yellow"
+                onClickHandler={() => showMediaViewerForGuideline(0)}
                 text="すべての画像を見る"
                 iconRight="arrow_upper_right"
                 isInline={true}
@@ -241,31 +215,21 @@ const Map = () => {
           </div>
         </section>
 
-        <Divider color="brown" />
+        <Divider color="yellow" />
 
-        <section className="Map__contentsPoiEnd">
-          <Heading level={2} text="施設詳細サービスの脱NAVER対応" />
+        <section className="Chie__contentsRenewal">
+          <Heading
+            level={2}
+            text="Yahoo!知恵袋 リニューアル + モダン環境移行"
+          />
           <p>
-            Yahoo! JAPAN
-            内のサービスを横断して利用できる、施設・店舗の詳細情報を提供する仕組みのプロジェクトが数年前から進行していたが、突如NAVERが作成することになり、そのままNAVERによりリリース・運用されていた。
-            <br />
-            しかしながら諸事情によりYahoo!
-            JAPANで巻き取る必要が生じたが、ソースコード等の共有は契約上不可だったため、リリースされている状態を目指してスクラッチで作り直すこととなった。
-          </p>
-          <p>
-            人海戦術で短期間で完成させる必要がありかつデザイナーのリソースが全くと言っていいほどなかったため、普段デザイナーが担当する見た目のコーディングもエンジニアの面々と協力して行った。自分がデザインしたわけではないものに対して、
-            <span className="util-Text--highlighted">
-              エンジニア含めた全員が理解しやすいように咀嚼しデザインシステムに落とし込む
-            </span>
-            という、珍しい対応をする機会となった。システマチックに作られていない部分は適宜噛み砕いてなんとか落とし込んだ。システム化することで
-            <span className="util-Text--highlighted">
-              エンジニア陣や他サービスのデザイナーへのデザイン思想の啓蒙・コードレビューをしやすくすることが目的。
-            </span>
+            全社でUS
+            Yahoo!のシステムから脱却するプロジェクトが進行し、Yahoo!知恵袋も対応することになった。またそれを期に、環境のモダン化（SaaS利用など）とUI・ビジュアルのリニューアルを図った。
           </p>
           <Button
-            href="https://map.yahoo.co.jp/v3/place/eHVjmOhzROA"
-            color="brown"
-            text="施設詳細ページ（東京ミッドタウン - Yahoo!マップ）"
+            href="https://chiebukuro.yahoo.co.jp/"
+            color="yellow"
+            text="Yahoo!知恵袋"
             iconRight="arrow_upper_right"
           />
         </section>
@@ -349,4 +313,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default Chie;

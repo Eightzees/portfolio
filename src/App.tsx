@@ -3,6 +3,7 @@ import Top from "./features/Top/Top";
 import Map from "./features/Map/Map";
 import Search from "./features/Search/Search";
 import PR from "./features/PR/PR";
+import Chie from "./features/Chie/Chie";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Routes>
         <Route path={"/"} element={<Top isWip={false} />} />
         <Route path={"/search"} element={<Search />} />
+        <Route path={"/chie"} element={<Chie />} />
         <Route path={"/pr"} element={<PR />} />
         <Route path={"/map"} element={<Map />} />
       </Routes>

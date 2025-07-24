@@ -2,14 +2,11 @@ import Heading from "../../components/Heading/Heading";
 import Icon from "../../components/Icon/Icon";
 import "./Chie.scss";
 
-import imageGuideline0 from "../../assets/images/map/guideline_colors.png";
-import imageGuideline1 from "../../assets/images/map/guideline_elevation.png";
-import imageGuideline2 from "../../assets/images/map/guideline_typography.png";
-import imageComponents0 from "../../assets/images/map/components_bubble.png";
-import imageComponents1 from "../../assets/images/map/components_button.png";
-import imageComponents2 from "../../assets/images/map/components_list.png";
-import imageComponents3 from "../../assets/images/map/components_snackbar.png";
-import imageComponents4 from "../../assets/images/map/components_tab.png";
+import imageChie0 from "../../assets/images/chie/chie_profile_form.png";
+import imageChie1 from "../../assets/images/chie/chie_voting.png";
+import imageChie2 from "../../assets/images/chie/chie_dd.png";
+import imageApp0 from "../../assets/images/chie/app_flow.png";
+import imageApp1 from "../../assets/images/chie/app_question.png";
 import thumbnailChie from "../../assets/images/chie/thumbnail_chie.png";
 import thumbnailApp from "../../assets/images/chie/thumbnail_app.png";
 import { useCallback, useState } from "react";
@@ -19,90 +16,70 @@ import Divider from "../../components/Divider/Divider";
 import Button from "../../components/Button/Button";
 
 const Chie = () => {
-  const mediaListForGuideline: MediaList[] = [
+  const mediaListForManaging: MediaList[] = [
     {
-      imagePath: imageGuideline0,
+      imagePath: imageChie0,
       index: 0,
-      caption: "Yahoo!地図のカラー定義：各色には意味や用途が設定されている",
+      caption:
+        "ユーザー登録フォームの改善を行った際のモック。大きな変更は入れておらず、性別選択欄の改善や新しい項目の追加などをしている",
     },
     {
-      imagePath: imageGuideline1,
+      imagePath: imageChie1,
       index: 1,
       caption:
-        "Yahoo!地図のエレベーション定義：各オブジェクトの存在すると階層と、階層ごとの影のスタイル定義",
+        "ベストアンサーの投票を気軽に行ってもらうためのUI改善施策。一人のユーザーが複数人格を持てる古いシステムのせいで複雑化していた投票行為を簡略化した。また投票すると知恵コインを獲得できるが、獲得時にコインがキラキラ回転するアニメーションを表示し、投票時に気持ちよさのような感覚が得られるように工夫した",
     },
     {
-      imagePath: imageGuideline2,
+      imagePath: imageChie2,
       index: 2,
       caption:
-        "Yahoo!地図のタイポグラフィ定義：テキストも用途ごとにサイズや色が決まっている",
+        "検索結果に表示するYahoo!知恵袋へのショートカットモジュールの改善。「Q・A」の文字のサイズ、装飾を数パターン用意しバケットテストを実施した",
     },
   ];
 
-  const mediaListForComponents: MediaList[] = [
+  const mediaListForApp: MediaList[] = [
     {
-      imagePath: imageComponents0,
+      imagePath: imageApp0,
       index: 0,
-      caption: "地図上に配置するための特殊なUIコンポーネント",
+      caption: "アプリで表示するために簡易化した知恵袋のフロー図",
     },
     {
-      imagePath: imageComponents1,
+      imagePath: imageApp1,
       index: 1,
-      caption: "ボタンは強さ・用途ごとに段階を設定して利用すべき箇所を明確化",
-    },
-    {
-      imagePath: imageComponents2,
-      index: 2,
-      caption: "なにか（押せるもの）を羅列するときのUIも複数パターンを用意",
-    },
-    {
-      imagePath: imageComponents3,
-      index: 3,
       caption:
-        "ユーザーのアクションに対するフィードバックを通知するためのコンポーネント。フェードイン・アウトがReact と相性が悪く、実装が複雑化",
-    },
-    {
-      imagePath: imageComponents4,
-      index: 4,
-      caption:
-        "地図がサービスのメインなので、それ以外の情報は極力狭い領域内に押し込める必要があった。ひとつのパネル内で内容をまるっと切り替えるためのUIは色々検討",
+        "アプリ表示用にリファインした質問と回答の画面。紫と黄色ベースのカラーリングを変更し、Yahoo! JAPAN アプリに馴染むようにした。",
     },
   ];
 
-  const [
-    isVisibleMediaViewerForGuideline,
-    setIsVisibleMediaViewerForGuideline,
-  ] = useState(false);
-  const [selectedIndexForGuideline, setSelectedIndexForGuideline] = useState(0);
-  const [
-    isVisibleMediaViewerForComponents,
-    setIsVisibleMediaViewerForComponents,
-  ] = useState(false);
-  const [selectedIndexForComponents, setSelectedIndexForComponents] =
-    useState(0);
+  const [isVisibleMediaViewerForManaging, setIsVisibleMediaViewerForManaging] =
+    useState(false);
+  const [selectedIndexForManaging, setSelectedIndexForManaging] = useState(0);
+  const [isVisibleMediaViewerForApp, setIsVisibleMediaViewerForApp] =
+    useState(false);
+  const [selectedIndexForApp, setSelectedIndexForApp] = useState(0);
 
-  const showMediaViewerForGuideline = useCallback(
+  const showMediaViewerForManaging = useCallback(
     (index: number) => {
-      setSelectedIndexForGuideline(index);
-      setIsVisibleMediaViewerForGuideline(true);
+      setSelectedIndexForManaging(index);
+      setIsVisibleMediaViewerForManaging(true);
     },
-    [selectedIndexForGuideline]
+    [selectedIndexForManaging]
   );
 
-  const hideMediaViewerForGuideline = useCallback(() => {
-    setIsVisibleMediaViewerForGuideline(false);
+  const hideMediaViewerForManaging = useCallback(() => {
+    setIsVisibleMediaViewerForManaging(false);
   }, []);
 
-  const showMediaViewerForComponents = useCallback(
+  const showMediaViewerForApp = useCallback(
     (index: number) => {
-      setSelectedIndexForComponents(index);
-      setIsVisibleMediaViewerForComponents(true);
+      setSelectedIndexForApp(index);
+      setIsVisibleMediaViewerForApp(true);
     },
-    [selectedIndexForComponents]
+    [selectedIndexForApp]
   );
 
-  const hideMediaViewerForComponents = useCallback(() => {
-    setIsVisibleMediaViewerForComponents(false);
+  const hideMediaViewerForApp = useCallback(() => {
+    setIsVisibleMediaViewerForApp(false);
   }, []);
 
   return (
@@ -155,7 +132,7 @@ const Chie = () => {
           </p>
           <div className="Chie__contentsManagingImage">
             <button
-              onClick={() => showMediaViewerForGuideline(0)}
+              onClick={() => showMediaViewerForManaging(0)}
               className="Chie__contentsManagingImageThumbnail"
             >
               <img
@@ -168,7 +145,7 @@ const Chie = () => {
             <div className="Chie__contentsManagingImageTrigger">
               <Button
                 color="yellow"
-                onClickHandler={() => showMediaViewerForGuideline(0)}
+                onClickHandler={() => showMediaViewerForManaging(0)}
                 text="すべての画像を見る"
                 iconRight="arrow_upper_right"
                 isInline={true}
@@ -186,6 +163,8 @@ const Chie = () => {
             アプリ内部にYahoo!知恵袋の機能を保持したいという依頼がありました。Yahoo!知恵袋は（当時）紫と黄色をキーカラーとしたサービスでしたが、Yahoo!
             JAPAN
             は青とピンクがベース。またYahoo!知恵袋の大量で複雑なコンテンツのすべてをもたせる必要はないということで、必要最低限の要素をピックアップしUIとビジュアルを変更しました。
+            <br />
+            （このシンプルに調整したものが、後のリニューアルの際にベースとなる。）
           </p>
           <p>
             Yahoo! JAPANアプリ側のデザイントーンと要望をヒアリングし、Yahoo!
@@ -193,7 +172,7 @@ const Chie = () => {
           </p>
           <div className="Chie__contentsAppImage">
             <button
-              onClick={() => showMediaViewerForGuideline(0)}
+              onClick={() => showMediaViewerForApp(0)}
               className="Chie__contentsAppImageThumbnail"
             >
               <img
@@ -203,10 +182,10 @@ const Chie = () => {
                 height="auto"
               />
             </button>
-            <div className="Map__contentsAppImageTrigger">
+            <div className="Chie__contentsAppImageTrigger">
               <Button
                 color="yellow"
-                onClickHandler={() => showMediaViewerForGuideline(0)}
+                onClickHandler={() => showMediaViewerForApp(0)}
                 text="すべての画像を見る"
                 iconRight="arrow_upper_right"
                 isInline={true}
@@ -225,68 +204,69 @@ const Chie = () => {
           <p>
             全社でUS
             Yahoo!のシステムから脱却するプロジェクトが進行し、Yahoo!知恵袋も対応することになった。またそれを期に、環境のモダン化（SaaS利用など）とUI・ビジュアルのリニューアルを図った。
+            <br />
+            それまでデザイナーが見た目のテンプレートを作るレポジトリとエンジニアのレポジトリが別れていたが、このタイミングでレポジトリを統合する方針に切り替わり、デザイナーもReact
+            やVue などでコーディングすることとなった。
+            <br />
+            同時にデザインのリニューアルについても、イメージボードや
           </p>
-          <Button
-            href="https://chiebukuro.yahoo.co.jp/"
-            color="yellow"
-            text="Yahoo!知恵袋"
-            iconRight="arrow_upper_right"
-          />
+          <div className="Chie__contentsRenewalLink">
+            <Button
+              href="https://chiebukuro.yahoo.co.jp/"
+              color="yellow"
+              text="Yahoo!知恵袋"
+              iconRight="arrow_upper_right"
+            />
+            <p>※担当当時のYahoo!知恵袋からアップデートされています。</p>
+          </div>
         </section>
 
-        <section className="Map__contentsRolls">
+        <section className="Chie__contentsRolls">
           <Heading level={2} text="担当領域・技術" />
-          <ul className="Map__contentsRollsList">
-            <li className="Map__contentsRollsListItem">
+          <ul className="Chie__contentsRollsList">
+            <li className="Chie__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
               <span>UI設計（UIデザイン）</span>
             </li>
-            <li className="Map__contentsRollsListItem">
-              <Icon type="hyphen" size="medium" color="primary" />
-              <span>ビジュアルデザイン</span>
-            </li>
-            <li className="Map__contentsRollsListItem">
-              <Icon type="hyphen" size="medium" color="primary" />
-              <span>デザインシステム設計・運用</span>
-            </li>
-            <li className="Map__contentsRollsListItem">
+            <li className="Chie__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
               <span>
-                コーディング（React + TypeScript + Redux / React + TypeScript +
-                Next.js / SASS）
+                ビジュアルデザイン（イラストレーション / サービスデザイン）
               </span>
             </li>
-            <li className="Map__contentsRollsListItem">
+            <li className="Chie__contentsRollsListItem">
+              <Icon type="hyphen" size="medium" color="primary" />
+              <span>
+                コーディング（HTML / SASS / PHP / React + JavaScript）
+              </span>
+            </li>
+            <li className="Chie__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
               <span>地図スタイルメンテナンス</span>
             </li>
           </ul>
 
           <Heading level={2} text="利用ツール" />
-          <ul className="Map__contentsRollsList">
-            <li className="Map__contentsRollsListItem">
+          <ul className="Chie__contentsRollsList">
+            <li className="Chie__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
               <span>Adobe Illustrator</span>
             </li>
-            <li className="Map__contentsRollsListItem">
+            <li className="Chie__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
-              <span>Sketch + Abstract</span>
+              <span>Adobe Photoshop</span>
             </li>
-            <li className="Map__contentsRollsListItem">
+            <li className="Chie__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
-              <span>Figma</span>
-            </li>
-            <li className="Map__contentsRollsListItem">
-              <Icon type="hyphen" size="medium" color="primary" />
-              <span>MapBox Studio</span>
+              <span>Sketch</span>
             </li>
           </ul>
         </section>
 
-        <div className="Map__contentsBack">
+        <div className="Chie__contentsBack">
           <Button
             href="/"
-            color="brown"
+            color="yellow"
             text="トップページへ戻る"
             iconLeft="arrow_left"
             isInline={true}
@@ -295,18 +275,18 @@ const Chie = () => {
         </div>
       </div>
 
-      {isVisibleMediaViewerForGuideline && (
+      {isVisibleMediaViewerForManaging && (
         <MediaViewer
-          mediaList={mediaListForGuideline}
-          selectedIndex={selectedIndexForGuideline}
-          onClickHandlerForClosing={hideMediaViewerForGuideline}
+          mediaList={mediaListForManaging}
+          selectedIndex={selectedIndexForManaging}
+          onClickHandlerForClosing={hideMediaViewerForManaging}
         />
       )}
-      {isVisibleMediaViewerForComponents && (
+      {isVisibleMediaViewerForApp && (
         <MediaViewer
-          mediaList={mediaListForComponents}
-          selectedIndex={selectedIndexForComponents}
-          onClickHandlerForClosing={hideMediaViewerForComponents}
+          mediaList={mediaListForApp}
+          selectedIndex={selectedIndexForApp}
+          onClickHandlerForClosing={hideMediaViewerForApp}
         />
       )}
     </div>

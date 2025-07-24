@@ -1,6 +1,6 @@
 @use "../../assets/styles/mixins";
 
-.PR {
+.Seikatsu {
   position: relative;
 
   &::before {
@@ -9,8 +9,8 @@
     position: absolute;
     width: 100%;
     height: 60px;
-    background: url(../../assets/images/pattern_pr.png) center repeat-x;
-    background-size: 372px 60px;
+    background: url(../../assets/images/pattern_seikatsu.png) center repeat-x;
+    background-size: 458px 60px;
   }
 
   & &__contents {
@@ -35,11 +35,10 @@
       }
     }
 
-    &Ghit,
-    &311,
-    &SatNav,
-    &Bonenkai,
-    &Yoshimotozaka {
+    &Interview,
+    &Radio,
+    &Yowamushi,
+    &Blog {
       padding: 32px 0 40px;
 
       & > .Heading {
@@ -71,10 +70,22 @@
       }
     }
 
+    &Yowamushi {
+      &Link {
+        margin-top: 24px;
+
+        & > p {
+          margin-top: 8px;
+          @include mixins.font-size(12);
+          color: var(--color-text-secondary);
+        }
+      }
+    }
+
     &Rolls {
-      margin-top: 8px;
+      margin-top: 16px;
       padding: 16px;
-      background-color: var(--color-background-emphasized-orange);
+      background-color: var(--color-background-emphasized-green);
 
       & > .Heading {
         margin-bottom: 0;
@@ -104,6 +115,6 @@
   }
 
   .util-Text--highlighted {
-    background-color: var(--color-background-emphasized-orange);
+    background-color: var(--color-background-emphasized-green);
   }
 }

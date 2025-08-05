@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
 import "./MediaViewer.scss";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import ButtonIconOnly from "../ButtonIconOnly/ButtonIconOnly";
 
 export interface MediaList {
@@ -20,8 +22,34 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
   const [selectedCaption, setSelectedCaption] = useState(
     props.mediaList[props.selectedIndex].caption
   );
-  const MediaViewerRef = useRef<HTMLDivElement>(null);
-  const SliderRef = useRef<HTMLDivElement>(null);
+  const [isDisabledNext, setIsDisabledNext] = useState(false);
+  const [isDisabledPrevious, setIsDisabledPrevious] = useState(false);
+
+  const mediaViewerRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+  const hasJustMounted = useRef(false);
+  const hasTappedNavigation = useRef(false);
+
+  const showOrHideNavigator = useCallback(() => {
+    setIsDisabledPrevious(selectedIndex <= 0);
+    setIsDisabledNext(selectedIndex >= lengthMedia - 1);
+  }, [selectedIndex, lengthMedia]);
+
+  const navigate = useCallback(
+    (direction: "previous" | "next") => {
+      if (direction === "previous" && selectedIndex > 0) {
+        setSelectedIndex(selectedIndex - 1);
+        setSelectedCaption(props.mediaList[selectedIndex - 1].caption);
+      } else if (direction === "next" && selectedIndex < lengthMedia - 1) {
+        setSelectedIndex(selectedIndex + 1);
+        setSelectedCaption(props.mediaList[selectedIndex + 1].caption);
+      }
+
+      hasTappedNavigation.current = true;
+    },
+    [selectedIndex, lengthMedia, setSelectedIndex, setSelectedCaption]
+  );
 
   const updateIndex = useCallback(
     (direction: "previous" | "next") => {
@@ -46,15 +74,27 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
   );
 
   useEffect(() => {
-    const contentWidth =
-      MediaViewerRef.current?.getBoundingClientRect().width ?? 0;
-    const scrollAmount = selectedIndex * contentWidth;
-    const slider = SliderRef.current;
-
-    if (slider) {
-      slider.scrollTo({ top: 0, left: scrollAmount, behavior: "smooth" });
+    if (!sliderRef.current || !mediaViewerRef.current) {
+      return;
     }
-  }, [selectedIndex]);
+
+    // const contentWidth = mediaViewerRef.current?.getBoundingClientRect().width ?? 0;
+    const contentWidth = mediaViewerRef.current.clientWidth;
+    const scrollAmount = selectedIndex * contentWidth;
+
+    showOrHideNavigator();
+
+    if (hasJustMounted.current) {
+      sliderRef.current.scrollTo({ top: 0, left: scrollAmount });
+      hasJustMounted.current = false;
+    } else {
+      sliderRef.current.scrollTo({
+        top: 0,
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  }, [selectedIndex, showOrHideNavigator]);
 
   return (
     <div className="MediaViewer">
@@ -74,10 +114,10 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
         />
       </div>
 
-      <div className="MediaViewer__content" ref={MediaViewerRef}>
+      <div className="MediaViewer__content" ref={mediaViewerRef}>
         <div className="MediaViewer__contentMedia">
-          <div className="MediaViewer__contentMediaSlider" ref={SliderRef}>
-            <ul className="MediaViewer__contentMediaSliderList">
+          <div className="MediaViewer__contentMediaSlider" ref={sliderRef}>
+            <ul className="MediaViewer__contentMediaSliderList" ref={listRef}>
               {props.mediaList.map((item, index) => (
                 <li
                   className="MediaViewer__contentMediaSliderListItem"
@@ -96,18 +136,18 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
         <div className="MediaViewer__contentNavigator">
           <ButtonIconOnly
             iconType="arrowhead_left"
-            isDisabled={selectedIndex <= 0}
+            isDisabled={isDisabledPrevious}
             isInverted={true}
             text="前へ"
-            onClickHandler={() => updateIndex("previous")}
+            onClickHandler={() => navigate("previous")}
             additionalClassName="MediaViewer__contentNavigatorButton MediaViewer__contentNavigatorButton--previous"
           />
           <ButtonIconOnly
             iconType="arrowhead_right"
-            isDisabled={selectedIndex >= lengthMedia - 1}
+            isDisabled={isDisabledNext}
             isInverted={true}
             text="次へ"
-            onClickHandler={() => updateIndex("next")}
+            onClickHandler={() => navigate("next")}
             additionalClassName="MediaViewer__contentNavigatorButton MediaViewer__contentNavigatorButton--next"
           />
         </div>

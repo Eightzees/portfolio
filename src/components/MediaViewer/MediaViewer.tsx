@@ -1,6 +1,7 @@
 import "./MediaViewer.scss";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import debounce from "lodash/debounce";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import ButtonIconOnly from "../ButtonIconOnly/ButtonIconOnly";
 
@@ -15,6 +16,8 @@ export interface MediaViewerProps {
   onClickHandlerForClosing: () => void;
   selectedIndex: number;
 }
+
+const SECONDS_TO_WAIT_FOR_SLIDER_STOPS = 200;
 
 const MediaViewer: React.FC<MediaViewerProps> = (props) => {
   const lengthMedia = props.mediaList.length;
@@ -51,26 +54,31 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
     [selectedIndex, lengthMedia, setSelectedIndex, setSelectedCaption]
   );
 
+  const debouncedSetSelectedIndex = useMemo(
+    () =>
+      debounce((numberOfScrolledItems: number) => {
+        setSelectedIndex(numberOfScrolledItems);
+      }, SECONDS_TO_WAIT_FOR_SLIDER_STOPS),
+    []
+  );
+
   const updateIndex = useCallback(
-    (direction: "previous" | "next") => {
-      // update index
-      if (direction === "previous") {
-        if (selectedIndex <= 0) {
-          return;
-        }
-        setSelectedIndex(selectedIndex - 1);
-        setSelectedCaption(props.mediaList[selectedIndex - 1].caption);
+    (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
+      if (!listRef.current || !listRef.current.children[0]) {
+        return;
       }
 
-      if (direction === "next") {
-        if (selectedIndex >= lengthMedia - 1) {
-          return;
-        }
-        setSelectedIndex(selectedIndex + 1);
-        setSelectedCaption(props.mediaList[selectedIndex + 1].caption);
+      const scrollLeft = event.currentTarget.scrollLeft;
+      const listItemWidth = listRef.current.children[0].clientWidth;
+      const numberOfMediaScrolled = Math.round(
+        Math.abs(scrollLeft) / listItemWidth
+      );
+
+      if (!hasTappedNavigation.current) {
+        debouncedSetSelectedIndex(numberOfMediaScrolled);
       }
     },
-    [selectedIndex, setSelectedIndex, setSelectedCaption]
+    [debouncedSetSelectedIndex]
   );
 
   useEffect(() => {
@@ -78,7 +86,6 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
       return;
     }
 
-    // const contentWidth = mediaViewerRef.current?.getBoundingClientRect().width ?? 0;
     const contentWidth = mediaViewerRef.current.clientWidth;
     const scrollAmount = selectedIndex * contentWidth;
 
@@ -116,7 +123,13 @@ const MediaViewer: React.FC<MediaViewerProps> = (props) => {
 
       <div className="MediaViewer__content" ref={mediaViewerRef}>
         <div className="MediaViewer__contentMedia">
-          <div className="MediaViewer__contentMediaSlider" ref={sliderRef}>
+          <div
+            className="MediaViewer__contentMediaSlider"
+            ref={sliderRef}
+            onScroll={(event: React.UIEvent<HTMLDivElement, UIEvent>) =>
+              updateIndex(event)
+            }
+          >
             <ul className="MediaViewer__contentMediaSliderList" ref={listRef}>
               {props.mediaList.map((item, index) => (
                 <li

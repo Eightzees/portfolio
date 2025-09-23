@@ -1,55 +1,79 @@
-import Heading from "../../components/Heading/Heading";
-import Icon from "../../components/Icon/Icon";
 import "./Seikatsu.scss";
 
+import { useCallback, useState } from "react";
+
+import thumbnailApp from "../../assets/images/chie/thumbnail_app.png";
+import imageBlog0 from "../../assets/images/seikatsu/blog_01.png";
+import imageBlog1 from "../../assets/images/seikatsu/blog_02.png";
+import imageBlog2 from "../../assets/images/seikatsu/blog_03.png";
+import imageBlog3 from "../../assets/images/seikatsu/blog_04.png";
+import imageBlog4 from "../../assets/images/seikatsu/blog_05.png";
+import imageInterview from "../../assets/images/seikatsu/interview.png";
 import imageRadio0 from "../../assets/images/seikatsu/radio_pc.png";
 import imageRadio1 from "../../assets/images/seikatsu/radio_sp.png";
-import imageApp0 from "../../assets/images/chie/app_flow.png";
-import imageApp1 from "../../assets/images/chie/app_question.png";
 import thumbnailRadio from "../../assets/images/seikatsu/thumbnail_radio.png";
-import thumbnailApp from "../../assets/images/chie/thumbnail_app.png";
-import { useCallback, useState } from "react";
-import type { MediaList } from "../../components/MediaViewer/MediaViewer";
-import MediaViewer from "../../components/MediaViewer/MediaViewer";
-import Divider from "../../components/Divider/Divider";
 import Button from "../../components/Button/Button";
+import Divider from "../../components/Divider/Divider";
+import Heading from "../../components/Heading/Heading";
+import Icon from "../../components/Icon/Icon";
+import MediaViewer from "../../components/MediaViewer/MediaViewer";
+import {
+  mediaListForBlog,
+  mediaListForRadio,
+} from "../../lib/mediaListForSeikatsu";
 
 const Seikatsu = () => {
-  const mediaListForRadio: MediaList[] = [
-    {
-      imagePath: imageRadio0,
-      index: 0,
-      caption:
-        "たかみなに質問するセクションと、逆にたかみなからの質問に回答するセクションがあるので、その2つを対比させるような作りになっている",
-    },
-    {
-      imagePath: imageRadio1,
-      index: 1,
-      caption:
-        "モバイル端末の場合は2つのセクションを同時に並列表示させることが厳しいのでタブで切り替える方式になる",
-    },
-  ];
+  // const mediaListForRadio: MediaList[] = [
+  //   {
+  //     imagePath: imageRadio0,
+  //     index: 0,
+  //     caption:
+  //       "たかみなに質問するセクションと、逆にたかみなからの質問に回答するセクションがあるので、その2つを対比させるような作りになっている",
+  //   },
+  //   {
+  //     imagePath: imageRadio1,
+  //     index: 1,
+  //     caption:
+  //       "モバイル端末の場合は2つのセクションを同時に並列表示させることが厳しいのでタブで切り替える方式になる",
+  //   },
+  // ];
 
-  const mediaListForApp: MediaList[] = [
-    {
-      imagePath: imageApp0,
-      index: 0,
-      caption: "アプリで表示するために簡易化した知恵袋のフロー図",
-    },
-    {
-      imagePath: imageApp1,
-      index: 1,
-      caption:
-        "アプリ表示用にリファインした質問と回答の画面。紫と黄色ベースのカラーリングを変更し、Yahoo! JAPAN アプリに馴染むようにした。",
-    },
-  ];
+  // const mediaListForBlog: MediaList[] = [
+  //   {
+  //     imagePath: imageBlog0,
+  //     index: 0,
+  //     caption: "Yahoo!ブログにおける各ユーザーのホーム画面",
+  //   },
+  //   {
+  //     imagePath: imageBlog1,
+  //     index: 1,
+  //     caption: "Yahoo!ブログのマイページ",
+  //   },
+  //   {
+  //     imagePath: imageBlog2,
+  //     index: 2,
+  //     caption:
+  //       "リニューアル後は「フォロー」の概念を設定。フォローしているブロガーの一覧画面",
+  //   },
+  //   {
+  //     imagePath: imageBlog3,
+  //     index: 3,
+  //     caption:
+  //       "ユーザーのプロフィール入力画面。要素を最低限に減らして、サービスのイメージをスッキリさせるという方針だった",
+  //   },
+  //   {
+  //     imagePath: imageBlog4,
+  //     index: 4,
+  //     caption: "記事内の画像詳細画面。画像ごとに場所やタグの設定を想定していた",
+  //   },
+  // ];
 
   const [isVisibleMediaViewerForRadio, setIsVisibleMediaViewerForRadio] =
     useState(false);
   const [selectedIndexForRadio, setSelectedIndexForRadio] = useState(0);
-  const [isVisibleMediaViewerForApp, setIsVisibleMediaViewerForApp] =
+  const [isVisibleMediaViewerForBlog, setIsVisibleMediaViewerForBlog] =
     useState(false);
-  const [selectedIndexForApp, setSelectedIndexForApp] = useState(0);
+  const [selectedIndexForBlog, setSelectedIndexForBlog] = useState(0);
 
   const showMediaViewerForRadio = useCallback(
     (index: number) => {
@@ -63,16 +87,16 @@ const Seikatsu = () => {
     setIsVisibleMediaViewerForRadio(false);
   }, []);
 
-  const showMediaViewerForApp = useCallback(
+  const showMediaViewerForBlog = useCallback(
     (index: number) => {
-      setSelectedIndexForApp(index);
-      setIsVisibleMediaViewerForApp(true);
+      setSelectedIndexForBlog(index);
+      setIsVisibleMediaViewerForBlog(true);
     },
-    [selectedIndexForApp]
+    [selectedIndexForBlog]
   );
 
-  const hideMediaViewerForApp = useCallback(() => {
-    setIsVisibleMediaViewerForApp(false);
+  const hideMediaViewerForBlog = useCallback(() => {
+    setIsVisibleMediaViewerForBlog(false);
   }, []);
 
   return (
@@ -118,7 +142,7 @@ const Seikatsu = () => {
           </p>
           <div className="Seikatsu__contentsInterviewImage">
             <img
-              src={thumbnailRadio}
+              src={imageInterview}
               alt="ユーザーインタビューの画像"
               width="100%"
               height="auto"
@@ -197,20 +221,17 @@ const Seikatsu = () => {
           </p>
           <div className="Seikatsu__contentsBlogImage">
             <button
-              onClick={() => showMediaViewerForApp(0)}
-              className="Seikatsu__contentsBlogThumbnail"
+              onClick={() => showMediaViewerForBlog(0)}
+              className="Seikatsu__contentsBlogImageThumbnail"
             >
-              <img
-                src={thumbnailApp}
-                alt="Yahoo! ブログの画像"
-                width="100%"
-                height="auto"
-              />
+              <div className="Seikatsu__contentsBlogImageThumbnailCanvas">
+                <iframe width="100%" src="pencil.html"></iframe>
+              </div>
             </button>
             <div className="Seikatsu__contentsBlogImageTrigger">
               <Button
                 color="green"
-                onClickHandler={() => showMediaViewerForApp(0)}
+                onClickHandler={() => showMediaViewerForBlog(0)}
                 text="すべての画像を見る"
                 iconRight="arrow_upper_right"
                 isInline={true}
@@ -270,7 +291,7 @@ const Seikatsu = () => {
 
         <div className="Seikatsu__contentsBack">
           <Button
-            href="/"
+            href="#"
             color="green"
             text="トップページへ戻る"
             iconLeft="arrow_left"
@@ -287,11 +308,11 @@ const Seikatsu = () => {
           onClickHandlerForClosing={hideMediaViewerForRadio}
         />
       )}
-      {isVisibleMediaViewerForApp && (
+      {isVisibleMediaViewerForBlog && (
         <MediaViewer
-          mediaList={mediaListForApp}
-          selectedIndex={selectedIndexForApp}
-          onClickHandlerForClosing={hideMediaViewerForApp}
+          mediaList={mediaListForBlog}
+          selectedIndex={selectedIndexForBlog}
+          onClickHandlerForClosing={hideMediaViewerForBlog}
         />
       )}
     </div>

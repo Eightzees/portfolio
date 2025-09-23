@@ -77,7 +77,7 @@
 
   & &__trigger {
     text-align: right;
-    margin-top: 16px;
+    margin: 0 8px 8px 0;
 
     & > button {
       @include mixins.font-weight(bold);
@@ -103,6 +103,7 @@
       position: relative;
       aspect-ratio: 2 / 1;
       grid-template-columns: repeat(5, 1fr);
+      max-width: 1024px;
 
       &Item {
         aspect-ratio: auto;

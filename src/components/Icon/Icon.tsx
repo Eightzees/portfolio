@@ -1,17 +1,18 @@
-import ArrowheadLeft from "./IconGlyphs/ArrowheadLeft";
-import ArrowheadRight from "./IconGlyphs/ArrowheadRight";
-import Cross from "./IconGlyphs/Cross";
+import "./Icon.scss";
+
 import classnames from "classnames";
 
-import "./Icon.scss";
-import type { IconType } from "./IconType";
-import Hyphen from "./IconGlyphs/Hyphen";
-import type { ColorType } from "../../constants";
-import ArrowheadDown from "./IconGlyphs/ArrowheadDown";
-import ArrowLeft from "./IconGlyphs/ArrowLeft";
 import ArrowDown from "./IconGlyphs/ArrowDown";
+import ArrowheadDown from "./IconGlyphs/ArrowheadDown";
+import ArrowheadLeft from "./IconGlyphs/ArrowheadLeft";
+import ArrowheadRight from "./IconGlyphs/ArrowheadRight";
+import ArrowLeft from "./IconGlyphs/ArrowLeft";
 import ArrowUpperRight from "./IconGlyphs/ArrowUpperRight";
+import Cross from "./IconGlyphs/Cross";
+import Hyphen from "./IconGlyphs/Hyphen";
 
+import type { IconType } from "./IconType";
+import type { ColorType } from "../../lib/constants";
 export interface IconProps {
   color: ColorType | "inverted" | "primary";
   size: "small" | "medium" | "large";

@@ -1,5 +1,6 @@
-import type { ColorType } from "../../constants";
+import type { ColorType } from "../../lib/constants";
 import "./Divider.scss";
+
 import classnames from "classnames";
 
 export interface DividerProps {

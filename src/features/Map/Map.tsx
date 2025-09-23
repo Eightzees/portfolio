@@ -1,25 +1,25 @@
-import Heading from "../../components/Heading/Heading";
-import Icon from "../../components/Icon/Icon";
-import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import "./Map.scss";
 
+import { useCallback, useState } from "react";
+
 import imageBeforeAfter from "../../assets/images/map/before_after.png";
-import imageGuideline0 from "../../assets/images/map/guideline_colors.png";
-import imageGuideline1 from "../../assets/images/map/guideline_elevation.png";
-import imageGuideline2 from "../../assets/images/map/guideline_typography.png";
 import imageComponents0 from "../../assets/images/map/components_bubble.png";
 import imageComponents1 from "../../assets/images/map/components_button.png";
 import imageComponents2 from "../../assets/images/map/components_list.png";
 import imageComponents3 from "../../assets/images/map/components_snackbar.png";
 import imageComponents4 from "../../assets/images/map/components_tab.png";
-import thumbnailGuideline from "../../assets/images/map/thumbnail_guideline.png";
+import imageGuideline0 from "../../assets/images/map/guideline_colors.png";
+import imageGuideline1 from "../../assets/images/map/guideline_elevation.png";
+import imageGuideline2 from "../../assets/images/map/guideline_typography.png";
 import thumbnailComponents from "../../assets/images/map/thumbnail_components.png";
-import { useCallback, useState } from "react";
-import type { MediaList } from "../../components/MediaViewer/MediaViewer";
-import MediaViewer from "../../components/MediaViewer/MediaViewer";
-import Divider from "../../components/Divider/Divider";
+import thumbnailGuideline from "../../assets/images/map/thumbnail_guideline.png";
 import Button from "../../components/Button/Button";
+import Divider from "../../components/Divider/Divider";
+import Heading from "../../components/Heading/Heading";
+import Icon from "../../components/Icon/Icon";
+import MediaViewer from "../../components/MediaViewer/MediaViewer";
 
+import type { MediaList } from "../../components/MediaViewer/MediaViewer";
 const Map = () => {
   const mediaListForGuideline: MediaList[] = [
     {

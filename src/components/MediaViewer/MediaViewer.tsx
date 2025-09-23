@@ -5,14 +5,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import ButtonIconOnly from "../ButtonIconOnly/ButtonIconOnly";
 
-export interface MediaList {
-  imagePath: string;
-  index: number;
-  caption: string;
-}
+import type { MediaListItem } from "../../lib/types";
 
 export interface MediaViewerProps {
-  mediaList: MediaList[];
+  mediaList: MediaListItem[];
   onClickHandlerForClosing: () => void;
   selectedIndex: number;
 }

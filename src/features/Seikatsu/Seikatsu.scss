@@ -82,6 +82,25 @@
       }
     }
 
+    &Blog {
+      &Image {
+        &Thumbnail {
+          display: block;
+          width: 100%;
+          cursor: pointer;
+
+          &Canvas {
+            height: 256px;
+            pointer-events: none;
+            & > iframe {
+              border: none;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+
     &Rolls {
       margin-top: 16px;
       padding: 16px;

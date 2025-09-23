@@ -1,8 +1,11 @@
-import classnames from "classnames";
-import Icon from "../Icon/Icon";
-import type { IconType } from "../Icon/IconType";
 import "./Button.scss";
-import type { ColorType } from "../../constants";
+
+import classnames from "classnames";
+
+import Icon from "../Icon/Icon";
+
+import type { IconType } from "../Icon/IconType";
+import type { ColorType } from "../../lib/constants";
 
 export interface ButtonProps {
   color?: ColorType;

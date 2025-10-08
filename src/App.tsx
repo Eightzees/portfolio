@@ -8,8 +8,9 @@ import Seikatsu from "./features/Seikatsu/Seikatsu";
 import Top from "./features/Top/Top";
 
 const App = () => {
-  const basename = import.meta.env.BASE_URL;
-  console.log({ basename });
+  //const basename = import.meta.env.BASE_URL;
+  const basename =
+    import.meta.env.BASE_URL === "./" ? "/" : import.meta.env.BASE_URL;
   return (
     <BrowserRouter basename={basename}>
       <Routes>

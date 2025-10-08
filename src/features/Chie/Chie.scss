@@ -57,7 +57,7 @@
           @include mixins.font-size(0);
           @media (hover: hover) {
             &:hover {
-              opacity: 0.8;
+              opacity: 0.7;
             }
           }
         }
@@ -68,14 +68,6 @@
         }
       }
     }
-
-    // &App {
-    //   &Image {
-    //     &Thumbnail {
-    //       border: 1px solid var(--color-main-yellow);
-    //     }
-    //   }
-    // }
 
     &Renewal {
       &Link {
@@ -90,7 +82,7 @@
     }
 
     &Rolls {
-      margin-top: 16px;
+      margin-top: 32px;
       padding: 16px;
       background-color: var(--color-background-emphasized-yellow);
 
@@ -117,11 +109,11 @@
     }
 
     &Back {
-      margin-top: 24px;
+      margin-top: 32px;
     }
   }
 
   .util-Text--highlighted {
-    background-color: var(--color-background-emphasized-brown);
+    background-color: var(--color-background-emphasized-yellow);
   }
 }

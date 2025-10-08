@@ -53,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({
       {iconLeft && (
         <Icon
           type={iconLeft}
-          color={isInline ? color : color === "yellow" ? "primary" : "inverted"}
+          color={isInline ? color : "inverted"}
           size="medium"
         />
       )}
@@ -61,9 +61,7 @@ const Button: React.FC<ButtonProps> = ({
       {iconRight && (
         <Icon
           type={iconRight}
-          color={
-            isInline ? color : /*color === "yellow" ? "primary" :*/ "inverted"
-          }
+          color={isInline ? color : "inverted"}
           size="medium"
         />
       )}

@@ -52,22 +52,32 @@
         justify-content: flex-end;
         align-items: flex-end;
         color: var(--color-text-inverted);
-        font-weight: 700;
         text-decoration: none;
 
         & > span {
           background-color: var(--color-background-scrim);
           padding: 2px 4px;
           line-height: 1;
+          @include mixins.font-weight(bold);
+          @include mixins.font-size(12);
         }
 
         @media (hover: hover) {
+          justify-content: center;
+          align-items: center;
+
+          & > span {
+            visibility: hidden;
+            @include mixins.font-size(16);
+          }
+
           &:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.4);
             text-decoration: underline;
 
             & > span {
-              background-color: rgba(39, 16, 3, 0.2);
+              visibility: visible;
+              background-color: transparent;
             }
           }
         }
@@ -77,7 +87,8 @@
 
   & &__trigger {
     text-align: right;
-    margin: 0 8px 8px 0;
+    padding: 0 8px 8px 0;
+    box-sizing: border-box;
 
     & > button {
       @include mixins.font-weight(bold);
@@ -133,7 +144,8 @@
     }
 
     & &__trigger {
-      align-self: flex-end;
+      width: 100%;
+      max-width: 1024px;
     }
   }
 

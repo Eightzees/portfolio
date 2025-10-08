@@ -1,114 +1,26 @@
-import Heading from "../../components/Heading/Heading";
-import Icon from "../../components/Icon/Icon";
 import "./PR.scss";
 
-import thumbnailGhit from "../../assets/images/pr/thumbnail_ghit.png";
-import imageGhit0 from "../../assets/images/pr/ghit_top.png";
-import imageGhit1 from "../../assets/images/pr/ghit_interview_02.png";
-import imageGhit2 from "../../assets/images/pr/ghit_interview_01_sp.png";
-import imageGhit3 from "../../assets/images/pr/ghit_dengue.png";
-import thumbnail311 from "../../assets/images/pr/thumbnail_311.png";
-import image3110 from "../../assets/images/pr/311_pc.png";
-import thumbnailSatNav from "../../assets/images/pr/thumbnail_satnav.png";
-import imageSatNav0 from "../../assets/images/pr/satnav_pc.png";
-import imageSatNav1 from "../../assets/images/pr/satnav_sp.png";
-import thumbnailBonenkai from "../../assets/images/pr/thumbnail_bonenkai.png";
-import imageBonenkai0 from "../../assets/images/pr/bonenkai_01.png";
-import imageBonenkai1 from "../../assets/images/pr/bonenkai_02.png";
-import imageBonenkai2 from "../../assets/images/pr/bonenkai_03.png";
-import imageBonenkai3 from "../../assets/images/pr/bonenkai_04.png";
-import thumbnailYoshimotozaka from "../../assets/images/pr/thumbnail_yoshimotozaka.png";
-import imageYoshimotozaka0 from "../../assets/images/pr/yoshimotozaka_pc.png";
 import { useCallback, useState } from "react";
-import type { MediaList } from "../../components/MediaViewer/MediaViewer";
-import MediaViewer from "../../components/MediaViewer/MediaViewer";
-import Divider from "../../components/Divider/Divider";
+
+import thumbnail311 from "../../assets/images/pr/thumbnail_311.png";
+import thumbnailBonenkai from "../../assets/images/pr/thumbnail_bonenkai.png";
+import thumbnailGhit from "../../assets/images/pr/thumbnail_ghit.png";
+import thumbnailSatNav from "../../assets/images/pr/thumbnail_satnav.png";
+import thumbnailYoshimotozaka from "../../assets/images/pr/thumbnail_yoshimotozaka.png";
 import Button from "../../components/Button/Button";
+import Divider from "../../components/Divider/Divider";
+import Heading from "../../components/Heading/Heading";
+import Icon from "../../components/Icon/Icon";
+import MediaViewer from "../../components/MediaViewer/MediaViewer";
+import {
+  mediaListFor311,
+  mediaListForBonenkai,
+  mediaListForGhit,
+  mediaListForSatNav,
+  mediaListForYoshimotozaka,
+} from "../../lib/mediaListForPR";
 
 const PR = () => {
-  const mediaListForGhit: MediaList[] = [
-    {
-      imagePath: imageGhit0,
-      index: 0,
-      caption:
-        "グローバルヘルス特集のトップページ。メインコンテンツである博士たちのインタビュー記事やデング熱解説ページへの導線、GHIT Fund 社の概要を掲載",
-    },
-    {
-      imagePath: imageGhit1,
-      index: 1,
-      caption:
-        "各インタビューページには、博士のメインビジュアルとインタビュー記事、またその博士が携わっている分野についての簡単な解説を掲載。読み物コンテンツなので、タイポグラフィは読みやすさを意識した",
-    },
-    {
-      imagePath: imageGhit2,
-      index: 2,
-      caption:
-        "モバイル表示時は別レイアウトを用意。また日本語・英語の2言語切替に対応した",
-    },
-    {
-      imagePath: imageGhit3,
-      index: 3,
-      caption:
-        "当時デング熱が流行して国内で問題になっていたため、インタビューした博士の一人に監修していただきデング熱について解説するページを別途作成した。",
-    },
-  ];
-
-  const mediaListFor311: MediaList[] = [
-    {
-      imagePath: image3110,
-      index: 0,
-      caption:
-        "デザイン素材は広告代理店の支給もあったため、サイト制作の実作業はコーディング以降をすべて担当した",
-    },
-  ];
-
-  const mediaListForSatNav: MediaList[] = [
-    {
-      imagePath: imageSatNav0,
-      index: 0,
-      caption:
-        "PC版。車のアニメーションは位置が固定されており、背景のみがスクロールする",
-    },
-    {
-      imagePath: imageSatNav1,
-      index: 1,
-      caption:
-        "SP版は縦スクロールで走っている様子を表現するため、車の正面のアニメーションを別途用意。画面下部に固定し、空と看板のみをスクロール。背景の景色はずれてスクロールする仕様（視差スクロールは当時の流行だった）",
-    },
-  ];
-
-  const mediaListForBonenkai: MediaList[] = [
-    {
-      imagePath: imageBonenkai0,
-      index: 0,
-      caption: "忘年会アンケートその1",
-    },
-    {
-      imagePath: imageBonenkai1,
-      index: 1,
-      caption: "忘年会アンケートその2",
-    },
-    {
-      imagePath: imageBonenkai2,
-      index: 2,
-      caption: "忘年会アンケートその3",
-    },
-    {
-      imagePath: imageBonenkai3,
-      index: 3,
-      caption: "忘年会アンケートその4",
-    },
-  ];
-
-  const mediaListForYoshimotozaka: MediaList[] = [
-    {
-      imagePath: imageYoshimotozaka0,
-      index: 0,
-      caption:
-        "トップの集合素材のバランス調整に、全工程の90%の時間を使ったと言っても過言ではない",
-    },
-  ];
-
   const [isVisibleMediaViewerForGhit, setIsVisibleMediaViewerForGhit] =
     useState(false);
   const [selectedIndexForGhit, setSelectedIndexForGhit] = useState(0);
@@ -191,7 +103,7 @@ const PR = () => {
   return (
     <div className="PR">
       <div className="PR__contents">
-        <Heading level={1} text="プロモーション活動" />
+        <Heading level={1} text="プロモーション活動" subText="のお仕事" />
         <section className="PR__contentsSummary">
           <Heading level={2} text="経験したこと" />
           <ul className="PR__contentsSummaryList">
@@ -231,14 +143,19 @@ const PR = () => {
           />
           <p>
             GHIT Fund
-            社からの依頼で、グローバルヘルスを啓蒙するサイトを作ることになり、制作をほぼすべて担当。
+            社からの依頼で、グローバルヘルスを啓蒙するウェブサイトを作ることになり、制作を担当しました。
             <br />
-            グローバルヘルスの世界では大物である博士たちにインタビューし、コンテンツづくりから社内チームで手掛けた（ライターは編集部、撮影はカメラ部）。
+            グローバルヘルスの世界では大物である博士たちにインタビューし、撮影し、記事をまとめ...
+            コンテンツづくりから社内のチームでわいわい手掛けるという、とても楽しい現場でした（ライターは編集部、撮影はカメラ部）。
+            <br />
             <span className="util-Text--highlighted">
-              クライアントへのヒアリングや撮影ディレクション、また実際に形にする部分はほぼ一人で担当。
+              クライアントへのヒアリングや撮影ディレクションなど、デザインやコーディング以外でもウェブサイト制作に関する部分はほぼ一人で担当。
             </span>
-            <br />
-            クライアントには大変喜んでいただき、さらにサイトの公開後にインタビューした博士の一人がノーベル賞を受賞するという素晴らしい事態も。
+          </p>
+          <p>
+            サイトの公開後にインタビューした博士の一人が
+            <span className="util-Text--highlighted">ノーベル賞を受賞</span>
+            するという素晴らしい事態も起き、公開後の反響も含めクライアントには大変喜んでいただけました。
           </p>
           <div className="PR__contentsGhitImage">
             <button
@@ -271,18 +188,28 @@ const PR = () => {
           <p>
             東日本大震災が発生してから3年が経とうという頃に、震災の記憶を風化させないためにYahoo!検索としてなにかできないか、チームでアイデアを出し合って実現させた企画。
             <br />
-            チーム内で企画を固めた後、広告代理店と連携し、震災当日の検索ワードと検索数を可視化したビジュアルを作成した。
+            チーム内で企画を固めた後、広告代理店と連携し、震災当日の検索ワードとそのワードの検索数を可視化したビジュアルムービーを作成しました。
             <br />
-            また3月11日に「3.11」と検索された数に応じた金額を東北に寄付するという内容も盛り込んだ。結果、用意していた予算を遥かに上回る検索数を叩き出し、社内の稟議を通すのが大変になる。
-            <br />
-            企画立案から3月11日までの時間がとても短く（思いついたのが割と直前だったため）、ドタバタした状況の中なんとかサイトの公開を3月11日に間に合わせた。当日参加した一般ユーザーの方から「英語版もほしい」という声をいただき、数日後に言語切り替え機能も追加で実装した。
+            また3月11日に「3.11」と検索された数に応じた金額を東北に寄付するという内容も盛り込みました。
           </p>
           <p>
-            現在に至っても未だ毎年続けられている企画の初年度と2年目を担当したが、
+            結果、
+            <span className="util-Text--highlighted">
+              用意していた予算を遥かに上回る検索数を叩き出し、
+            </span>
+            役員に相談の末、予算を超えて検索数通りの募金をする許可を得たものの、社内の稟議を通すのが大変に。
+          </p>
+          <p>
+            企画立案から3月11日までの時間が短く（思いついたのが割と直前だったため）、ドタバタした状況の中なんとかサイトの公開を3月11日に間に合わせました。
+            <br />
+            当日参加した一般ユーザーの方から「英語版もほしい」という声をいただき、数日後に言語切り替え機能も追加で実装しました。
+          </p>
+          <p>
+            現在に至るまで未だ毎年続けられている企画の初年度と2年目を担当しましたが、
             <span className="util-Text--highlighted">
               初年度のエモーショナルさ
             </span>
-            は後にも先にも経験しがたいものであった。
+            は後にも先にも経験しがたいものでした。
           </p>
           <div className="PR__contents311Image">
             <button
@@ -313,14 +240,15 @@ const PR = () => {
         <section className="PR__contentsSatNav">
           <Heading level={2} text="秋の3大キャンペーン - Yahoo!カーナビ" />
           <p>
-            Yahoo!カーナビを利用することでTポイントがたまるというよくあるキャンペーン。
+            Yahoo!カーナビを利用することでTポイントがたまるというよくあるキャンペーンの訴求サイト。
             <br />
-            よくあるので少し遊び心を入れることにし、車のGIFアニメーションを作り、道路を模した
+            よくあるので少し遊び心を入れることにし、車のGIFアニメーションを作り、
             <span className="util-Text--highlighted">
-              画面を横スクロールさせることで車が走っている様子を擬似的に表現。
+              道路を模した背景と道路標識を横スクロールさせることで車が走っている様子を擬似的に表現しました。
             </span>
-            <br />
-            SP版は同じコンセプトを踏襲しつつも横スクロールが難しいので、アニメーションやレイアウトも専用で用意した。
+          </p>
+          <p>
+            SP版は同じコンセプトを踏襲しつつも横スクロールが難しいので、車のアニメーションや背景は専用のものを用意し、縦スクロールで同じ世界観を表現できるようにしました。
           </p>
           <div className="PR__contentsSatNavImage">
             <button
@@ -355,13 +283,22 @@ const PR = () => {
             text="幹事5,000人に忘年会大調査 - Yahoo!予約飲食"
           />
           <p>
-            忘年会シーズンに毎年恒例で作成されるアンケート結果まとめページ。毎年円グラフや棒グラフで作成されていたが、担当になったので少し遊び心を入れたインフォグラフィック風にした。
+            忘年会シーズンに毎年恒例で作成されるアンケート結果まとめページ。例年、シンプルな円グラフや棒グラフで結果を表示する形式で作成されていましたが、担当になったので例年とは変えて少し遊び心を入れたインフォグラフィック風にすることにしました。
             <br />
-            出したアイデアが大量のベクター画像を必要としたため、制作期間的にイラスト部分を外注することにした。イラストはすべて手書きで書いて指示コメントとともに発注したが、思ったより担当してくれる方の人数が多くフィードバック作業がなかなか大変だった。内容が比較的ふざけていたため、
+            出したアイデアが
+            <span className="util-Text--highlighted">
+              大量のピクトグラムやイラスト画像
+            </span>
+            を必要としたため、制作期間の兼ね合いでイラスト部分を外注することに。
+          </p>
+          <p>
+            イラストはすべて自ら手描きで描いて指示コメントとともに発注したところ、思ったより担当してくれるスタッフの人数が多く、フィードバックやクオリティのばらつきの調整になかなかの時間を割くこととなりました。
+            <br />
+            しかしながら内容が比較的ふざけていたため、
             <span className="util-Text--highlighted">
               外注スタッフの方々も楽しそうに作業
             </span>
-            してくれて、戻し作業も含めてスムーズに運ぶことができた。
+            してくれ、出し戻しの作業も和気あいあいとした雰囲気の中進めることができました。
           </p>
           <div className="PR__contentsBonenkaiImage">
             <button
@@ -396,13 +333,13 @@ const PR = () => {
             text="吉本坂46の泣かせメシ！ - Yahoo!ライフマガジン"
           />
           <p>
-            短期間で作ることを依頼されたタレント素材を扱う系の案件。
+            短期間（2～3日）で作ることを依頼されたタレント素材を扱う系の案件。
             <br />
             レギュレーションは厳しくなかったものの、
             <span className="util-Text--highlighted">
               46人分の素材の編集が（「46」というなんともレイアウトの難しい数のおかげで）
             </span>
-            とにかく大変であった。
+            とにかく大変でした。
           </p>
           <div className="PR__contentsYoshimotozakaImage">
             <button
@@ -428,6 +365,8 @@ const PR = () => {
             </div>
           </div>
         </section>
+
+        <Divider color="orange" />
 
         <section className="PR__contentsRolls">
           <Heading level={2} text="担当領域・技術" />

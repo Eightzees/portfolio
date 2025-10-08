@@ -1,56 +1,20 @@
-import Heading from "../../components/Heading/Heading";
-import Icon from "../../components/Icon/Icon";
 import "./Chie.scss";
 
-import imageChie0 from "../../assets/images/chie/chie_profile_form.png";
-import imageChie1 from "../../assets/images/chie/chie_voting.png";
-import imageChie2 from "../../assets/images/chie/chie_dd.png";
-import imageApp0 from "../../assets/images/chie/app_flow.png";
-import imageApp1 from "../../assets/images/chie/app_question.png";
-import thumbnailChie from "../../assets/images/chie/thumbnail_chie.png";
-import thumbnailApp from "../../assets/images/chie/thumbnail_app.png";
 import { useCallback, useState } from "react";
-import type { MediaList } from "../../components/MediaViewer/MediaViewer";
-import MediaViewer from "../../components/MediaViewer/MediaViewer";
-import Divider from "../../components/Divider/Divider";
+
+import thumbnailApp from "../../assets/images/chie/thumbnail_app.png";
+import thumbnailChie from "../../assets/images/chie/thumbnail_chie.png";
 import Button from "../../components/Button/Button";
+import Divider from "../../components/Divider/Divider";
+import Heading from "../../components/Heading/Heading";
+import Icon from "../../components/Icon/Icon";
+import MediaViewer from "../../components/MediaViewer/MediaViewer";
+import {
+  mediaListForApp,
+  mediaListForManaging,
+} from "../../lib/mediaListForChie";
 
 const Chie = () => {
-  const mediaListForManaging: MediaList[] = [
-    {
-      imagePath: imageChie0,
-      index: 0,
-      caption:
-        "ユーザー登録フォームの改善を行った際のモック。大きな変更は入れておらず、性別選択欄の改善や新しい項目の追加などをしている",
-    },
-    {
-      imagePath: imageChie1,
-      index: 1,
-      caption:
-        "ベストアンサーの投票を気軽に行ってもらうためのUI改善施策。一人のユーザーが複数人格を持てる古いシステムのせいで複雑化していた投票行為を簡略化した。また投票すると知恵コインを獲得できるが、獲得時にコインがキラキラ回転するアニメーションを表示し、投票時に気持ちよさのような感覚が得られるように工夫した",
-    },
-    {
-      imagePath: imageChie2,
-      index: 2,
-      caption:
-        "検索結果に表示するYahoo!知恵袋へのショートカットモジュールの改善。「Q・A」の文字のサイズ、装飾を数パターン用意しバケットテストを実施した",
-    },
-  ];
-
-  const mediaListForApp: MediaList[] = [
-    {
-      imagePath: imageApp0,
-      index: 0,
-      caption: "アプリで表示するために簡易化した知恵袋のフロー図",
-    },
-    {
-      imagePath: imageApp1,
-      index: 1,
-      caption:
-        "アプリ表示用にリファインした質問と回答の画面。紫と黄色ベースのカラーリングを変更し、Yahoo! JAPAN アプリに馴染むようにした。",
-    },
-  ];
-
   const [isVisibleMediaViewerForManaging, setIsVisibleMediaViewerForManaging] =
     useState(false);
   const [selectedIndexForManaging, setSelectedIndexForManaging] = useState(0);
@@ -85,7 +49,7 @@ const Chie = () => {
   return (
     <div className="Chie">
       <div className="Chie__contents">
-        <Heading level={1} text="Yahoo!知恵袋" />
+        <Heading level={1} text="Yahoo!知恵袋" subText="でのお仕事" />
         <section className="Chie__contentsSummary">
           <Heading level={2} text="経験したこと" />
           <ul className="Chie__contentsSummaryList">
@@ -123,12 +87,16 @@ const Chie = () => {
           <p>
             Yahoo!知恵袋は誰でもわからないこと・疑問などを質問できるサービスです。
             <br />
-            しかしながら実はトラフィックの多くは知りたいことを検索した結果、Yahoo!知恵袋で類似の質問を見つけて参照する「閲覧ユーザー」が大半。「質問ユーザー」と「回答ユーザー」を増やしてコンテンツ量を増大させることが課題でした。
+            しかしながら実はトラフィックの多くは、知りたいことを検索した結果Yahoo!知恵袋で類似の質問を見つけて参照する「閲覧ユーザー」が大半。Yahoo!知恵袋のコンテンツ拡充のために、
+            <span className="util-Text--highlighted">
+              いかに「質問ユーザー」と「回答ユーザー」を増やすか
+            </span>
+            が課題でした。
           </p>
           <p>
-            複雑な質問・回答・ベストアンサー決定のプロセスを見直したり、投稿フォームのUIを改善したり...
+            複雑な質問・回答・ベストアンサー決定のプロセスの見直し、新たな「投票」の概念の追加とそのフローの整理、投稿フォームのUIの改善...
             <br />
-            巨大なシステムであるため細かい部分から少しずつ取り組み、数値を見てブラッシュアップを繰り返しました。
+            古く巨大なシステムであるため細かい部分から少しずつ取り組み、ログの数値を見てはブラッシュアップを繰り返すことで、徐々に使いやすいサービスにしていくことを目指しました。
           </p>
           <div className="Chie__contentsManagingImage">
             <button
@@ -159,12 +127,21 @@ const Chie = () => {
         <section className="Chie__contentsApp">
           <Heading level={2} text="Yahoo! JAPANアプリ向け知恵袋" />
           <p>
-            Yahoo！ JAPAN
-            アプリ内部にYahoo!知恵袋の機能を保持したいという依頼がありました。Yahoo!知恵袋は（当時）紫と黄色をキーカラーとしたサービスでしたが、Yahoo!
-            JAPAN
-            は青とピンクがベース。またYahoo!知恵袋の大量で複雑なコンテンツのすべてをもたせる必要はないということで、必要最低限の要素をピックアップしUIとビジュアルを変更しました。
+            Yahoo! JAPAN
+            アプリ内部にYahoo!知恵袋の機能を保持したいという依頼がありました。
             <br />
-            （このシンプルに調整したものが、後のリニューアルの際にベースとなる。）
+            Yahoo!知恵袋は（当時）紫と黄色をキーカラーとしたサービスでしたが、Yahoo!
+            JAPAN
+            は青とピンクがベース。またYahoo!知恵袋の大量で複雑なコンテンツのすべてをもたせる必要はないということで、
+            <span className="util-Text--highlighted">
+              必要最低限の要素をピックアップし、それに合わせてUIとビジュアルを刷新
+            </span>
+            しました。
+            <br />（
+            <span className="util-Text--highlighted">
+              このシンプルに調整したデザインが、後のYahoo!知恵袋リニューアルの際にベースとなりました。
+            </span>
+            ）
           </p>
           <p>
             Yahoo! JAPANアプリ側のデザイントーンと要望をヒアリングし、Yahoo!
@@ -203,12 +180,17 @@ const Chie = () => {
           />
           <p>
             全社でUS
-            Yahoo!のシステムから脱却するプロジェクトが進行し、Yahoo!知恵袋も対応することになった。またそれを期に、環境のモダン化（SaaS利用など）とUI・ビジュアルのリニューアルを図った。
+            Yahoo!のシステムから脱却するプロジェクトが進行し、Yahoo!知恵袋も対応することになりました。またそれを期に環境のモダン化（SaaS利用など）とUI・ビジュアルのリニューアルを同時に行うこととなりました。
+          </p>
+          <p>
+            それまではデザイナーが見た目のテンプレートを作って格納しておくレポジトリとエンジニアのレポジトリが別れていましたが、このタイミングで
+            <span className="util-Text--highlighted">
+              レポジトリを統合する方針に切り替わり、デザイナーもReact やVue
+              などでコーディングするようになりました。
+            </span>
+            （Yahoo!知恵袋はReactを採用）
             <br />
-            それまでデザイナーが見た目のテンプレートを作るレポジトリとエンジニアのレポジトリが別れていたが、このタイミングでレポジトリを統合する方針に切り替わり、デザイナーもReact
-            やVue などでコーディングすることとなった。
-            <br />
-            同時にデザインのリニューアルについても、イメージボードや
+            同時にデザインのリニューアルについても、方向性の検討やイメージボードの作成を進め始めました。（残念ながら途中で他サービスの全社プロジェクト参加のためYahoo!知恵袋から離脱）
           </p>
           <div className="Chie__contentsRenewalLink">
             <Button
@@ -220,6 +202,8 @@ const Chie = () => {
             <p>※担当当時のYahoo!知恵袋からアップデートされています。</p>
           </div>
         </section>
+
+        <Divider color="yellow" />
 
         <section className="Chie__contentsRolls">
           <Heading level={2} text="担当領域・技術" />
@@ -239,10 +223,6 @@ const Chie = () => {
               <span>
                 コーディング（HTML / SASS / PHP / React + JavaScript）
               </span>
-            </li>
-            <li className="Chie__contentsRollsListItem">
-              <Icon type="hyphen" size="medium" color="primary" />
-              <span>地図スタイルメンテナンス</span>
             </li>
           </ul>
 

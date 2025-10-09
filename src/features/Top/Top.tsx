@@ -26,27 +26,27 @@ const Top = (props: TopProps) => {
 
       <ul className="Top__list">
         <li className="Top__listItem Top__listItem--search">
-          <a href="./search">
+          <a href="#search">
             <span>Yahoo!検索</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--seikatsu">
-          <a href="./seikatsu">
+          <a href="#seikatsu">
             <span>Yahoo!生活メディア</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--chie">
-          <a href="./chie">
+          <a href="#chie">
             <span>Yahoo!知恵袋</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--pr">
-          <a href="./pr">
+          <a href="#pr">
             <span>プロモーション案件</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--map">
-          <a href="./map">
+          <a href="#map">
             <span>Yahoo!地図</span>
           </a>
         </li>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import Chie from "./features/Chie/Chie";
 import Map from "./features/Map/Map";
@@ -29,7 +29,7 @@ import Top from "./features/Top/Top";
 
 const App = () => {
   return (
-    <BrowserRouter basename="/portfolio">
+    <HashRouter>
       <Routes>
         <Route path={"/"} element={<Top isWip={false} />} />
         <Route path={"/search"} element={<Search />} />
@@ -38,7 +38,7 @@ const App = () => {
         <Route path={"/pr"} element={<PR />} />
         <Route path={"/map"} element={<Map />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

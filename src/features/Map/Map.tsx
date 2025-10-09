@@ -318,7 +318,7 @@ const Map = () => {
 
         <div className="Map__contentsBack">
           <Button
-            href="../"
+            href="./"
             color="brown"
             text="トップページへ戻る"
             iconLeft="arrow_left"

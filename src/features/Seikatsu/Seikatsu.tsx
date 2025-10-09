@@ -272,7 +272,7 @@ const Seikatsu = () => {
 
         <div className="Seikatsu__contentsBack">
           <Button
-            href="../"
+            href="./"
             color="green"
             text="トップページへ戻る"
             iconLeft="arrow_left"

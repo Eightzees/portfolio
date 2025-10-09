@@ -415,7 +415,7 @@ const PR = () => {
 
         <div className="PR__contentsBack">
           <Button
-            href="/"
+            href="../"
             color="orange"
             text="トップページへ戻る"
             iconLeft="arrow_left"

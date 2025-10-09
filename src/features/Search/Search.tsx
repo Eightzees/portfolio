@@ -357,7 +357,7 @@ const Search = () => {
 
         <div className="Search__contentsBack">
           <Button
-            href="/"
+            href="../"
             color="blue"
             text="トップページへ戻る"
             iconLeft="arrow_left"

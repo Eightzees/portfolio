@@ -17,13 +17,6 @@ body {
   @include mixins.font-size(14);
   line-height: 1.4;
   color: var(--color-text-primary);
-  //min-height: 100dvh;
-  min-height: unset;
-}
-
-#root {
-  //min-height: 100vh;
-  min-height: unset;
 }
 
 button {

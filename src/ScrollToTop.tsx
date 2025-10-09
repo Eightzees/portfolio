@@ -1,41 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
   const previousPathname = useRef(pathname);
 
-  useEffect(() => {
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
+  useLayoutEffect(() => {
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual";
     }
 
-    const fixScroll = () => {
-      if (hash && hash !== "#/" && hash !== "#") {
-        console.log("it doesn't happen");
-        const targetId = hash.replace(/^#\/?/, "");
-        const element = document.getElementById(targetId);
+    const timeout = setTimeout(() => {
+      if (pathname !== previousPathname.current) {
+        window.scrollTo(0, 0);
+        previousPathname.current = pathname;
+      } else if (hash) {
+        // アンカーの場合は、その要素へ移動
+        const element = document.querySelector(hash);
         if (element) {
-          element.scrollIntoView({ behavior: "instant" as ScrollBehavior });
-          return;
+          element.scrollIntoView({ behavior: "smooth" });
         }
+      } else {
+        window.scrollTo(0, 0);
       }
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "instant" as ScrollBehavior,
-      });
-      console.log("should be");
-    };
+    }, 100);
 
-    // requestAnimationFrameを3回ネストして、「描画が安定した後」に実行
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(fixScroll);
-      });
-    });
-
-    previousPathname.current = pathname;
+    return () => clearTimeout(timeout);
   }, [pathname, hash]);
 
   return null;

@@ -245,7 +245,7 @@ const Chie = () => {
 
         <div className="Chie__contentsBack">
           <Button
-            href="#"
+            href="./"
             color="yellow"
             text="トップページへ戻る"
             iconLeft="arrow_left"

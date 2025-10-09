@@ -18,21 +18,11 @@
     padding: 80px 24px 40px;
     margin: 0 auto;
 
-    & > section {
+    &Summary {
       padding: 24px 0 40px;
 
-      & > .Heading {
-        margin-bottom: 24px;
-      }
-
-      & > p:not(:first-of-type) {
-        margin-top: 24px;
-      }
-    }
-
-    &Summary {
       &List {
-        //margin-top: 16px;
+        margin-top: 16px;
 
         &Item {
           display: flex;
@@ -45,15 +35,31 @@
       }
     }
 
-    &Ghit {
+    &Ghit,
+    &311,
+    &SatNav,
+    &Bonenkai,
+    &Yoshimotozaka {
+      padding: 32px 0 40px;
+
+      & > .Heading {
+        margin-bottom: 24px;
+      }
+
+      & > p:not(:first-of-type) {
+        margin-top: 24px;
+      }
+
       &Image {
         margin-top: 24px;
 
         &Thumbnail {
+          border-radius: 8px;
+          overflow: hidden;
           @include mixins.font-size(0);
           @media (hover: hover) {
             &:hover {
-              opacity: 0.8;
+              opacity: 0.7;
             }
           }
         }
@@ -65,44 +71,35 @@
       }
     }
 
-    &Guideline {
-      &Thumbnails {
-        margin-top: 24px;
-        &List {
+    &Rolls {
+      margin-top: 32px;
+      padding: 16px;
+      background-color: var(--color-background-emphasized-orange);
+
+      & > .Heading {
+        margin-bottom: 0;
+
+        &:not(:first-of-type) {
+          margin-top: 24px;
+        }
+      }
+
+      &List {
+        margin-top: 16px;
+
+        &Item {
           display: flex;
-          gap: 8px;
-          //border-radius: 8px;
-          overflow: hidden;
+          gap: 4px;
 
-          &Item {
-            flex: 1;
-            aspect-ratio: 1 / 1;
-            height: 100%;
-
-            // &:first-of-type {
-            //   & > .Thumbnail {
-            //     border-radius: 8px 0 0 8px;
-            //   }
-            // }
-          }
-
-          &--fiveGrids {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-
-            & > li:nth-child(3) {
-              grid-column: 3 / 4;
-              grid-row: 1 / 3;
-              aspect-ratio: 1 / 2;
-
-              & .Thumbnail__image {
-                aspect-ratio: 1 / 2;
-              }
-            }
+          & > span:first-of-type {
+            padding-top: 2px;
           }
         }
       }
+    }
+
+    &Back {
+      margin-top: 32px;
     }
   }
 

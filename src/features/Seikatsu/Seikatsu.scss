@@ -1,0 +1,145 @@
+@use "../../assets/styles/mixins";
+
+.Seikatsu {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background: url(../../assets/images/pattern_seikatsu.png) center repeat-x;
+    background-size: 458px 60px;
+  }
+
+  & &__contents {
+    max-width: var(--size-maximum-width-content);
+    padding: 80px 24px 40px;
+    margin: 0 auto;
+
+    & > .Heading + p {
+      margin-top: 8px;
+      @include mixins.font-size(12);
+      color: var(--color-text-secondary);
+    }
+
+    &Summary {
+      padding: 24px 0 40px;
+
+      &List {
+        margin-top: 16px;
+
+        &Item {
+          display: flex;
+          gap: 4px;
+
+          & > span:first-of-type {
+            padding-top: 2px;
+          }
+        }
+      }
+    }
+
+    &Interview,
+    &Radio,
+    &Yowamushi,
+    &Blog {
+      padding: 32px 0 40px;
+
+      & > .Heading {
+        margin-bottom: 24px;
+      }
+
+      & > p:not(:first-of-type) {
+        margin-top: 24px;
+      }
+
+      &Image {
+        margin-top: 24px;
+
+        &Thumbnail {
+          border-radius: 8px;
+          overflow: hidden;
+          @include mixins.font-size(0);
+          @media (hover: hover) {
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+
+        &Trigger {
+          margin-top: 8px;
+          text-align: right;
+        }
+      }
+    }
+
+    &Yowamushi {
+      &Link {
+        margin-top: 24px;
+
+        & > p {
+          margin-top: 8px;
+          @include mixins.font-size(12);
+          color: var(--color-text-secondary);
+        }
+      }
+    }
+
+    &Blog {
+      &Image {
+        &Thumbnail {
+          display: block;
+          width: 100%;
+          cursor: pointer;
+
+          &Canvas {
+            height: 256px;
+            pointer-events: none;
+            & > iframe {
+              border: none;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    &Rolls {
+      margin-top: 32px;
+      padding: 16px;
+      background-color: var(--color-background-emphasized-green);
+
+      & > .Heading {
+        margin-bottom: 0;
+
+        &:not(:first-of-type) {
+          margin-top: 24px;
+        }
+      }
+
+      &List {
+        margin-top: 16px;
+
+        &Item {
+          display: flex;
+          gap: 4px;
+
+          & > span:first-of-type {
+            padding-top: 2px;
+          }
+        }
+      }
+    }
+
+    &Back {
+      margin-top: 32px;
+    }
+  }
+
+  .util-Text--highlighted {
+    background-color: var(--color-background-emphasized-green);
+  }
+}

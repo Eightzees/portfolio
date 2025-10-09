@@ -16,4 +16,9 @@
   &:is(h4) {
     @include mixins.font-size(12);
   }
+
+  & &__subText {
+    margin-left: 4px;
+    @include mixins.font-size(12);
+  }
 }

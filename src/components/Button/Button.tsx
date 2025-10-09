@@ -1,8 +1,11 @@
-import classnames from "classnames";
-import Icon from "../Icon/Icon";
-import type { IconType } from "../Icon/IconType";
 import "./Button.scss";
-import type { ColorType } from "../../constants";
+
+import classnames from "classnames";
+
+import Icon from "../Icon/Icon";
+
+import type { IconType } from "../Icon/IconType";
+import type { ColorType } from "../../lib/constants";
 
 export interface ButtonProps {
   color?: ColorType;
@@ -12,6 +15,7 @@ export interface ButtonProps {
   isDisabled?: boolean;
   isInline?: boolean;
   onClickHandler?: () => void;
+  target?: "_blank" | "_self";
   text: string;
   additionalClassName?: string;
 }
@@ -24,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   isDisabled = false,
   isInline = false,
   onClickHandler,
+  target = "_blank",
   text,
   additionalClassName,
 }) => {
@@ -42,13 +47,13 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClickHandler || undefined}
       disabled={isDisabled}
       href={href || undefined}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={target}
+      rel={href && target === "_blank" ? "noopener noreferrer" : undefined}
     >
       {iconLeft && (
         <Icon
           type={iconLeft}
-          color={isInline ? color : color === "yellow" ? "primary" : "inverted"}
+          color={isInline ? color : "inverted"}
           size="medium"
         />
       )}
@@ -56,7 +61,7 @@ const Button: React.FC<ButtonProps> = ({
       {iconRight && (
         <Icon
           type={iconRight}
-          color={isInline ? color : color === "yellow" ? "primary" : "inverted"}
+          color={isInline ? color : "inverted"}
           size="medium"
         />
       )}

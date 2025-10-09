@@ -17,6 +17,10 @@
   border-width: 0;
 }
 
+.util-Text--emphasized {
+  @include mixins.font-weight(bold);
+}
+
 .util-Text--caption {
   color: var(--color-text-secondary);
   @include mixins.font-size(12);

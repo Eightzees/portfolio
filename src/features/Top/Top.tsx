@@ -1,7 +1,9 @@
-import { useState } from "react";
 import "./Top.scss";
-import Heading from "../../components/Heading/Heading";
+
+import { useState } from "react";
+
 import ButtonIconOnly from "../../components/ButtonIconOnly/ButtonIconOnly";
+import Heading from "../../components/Heading/Heading";
 
 interface TopProps {
   isWip: boolean;
@@ -18,6 +20,10 @@ const Top = (props: TopProps) => {
 
   return (
     <div className="Top">
+      <div className="Top__trigger">
+        <button onClick={openProfile}>Azusa Kojima</button>
+      </div>
+
       <ul className="Top__list">
         <li className="Top__listItem Top__listItem--search">
           <a href="#search">
@@ -45,9 +51,6 @@ const Top = (props: TopProps) => {
           </a>
         </li>
       </ul>
-      <div className="Top__trigger">
-        <button onClick={openProfile}>Azusa Kojima</button>
-      </div>
 
       {isVisibleProfile && (
         <div className="Top__profile">
@@ -83,7 +86,7 @@ const Top = (props: TopProps) => {
             <section className="Top__profileContentsSection">
               <Heading level={2} text="Experiences" />
               <div className="Top__profileContentsSectionList">
-                <span>バゲットテスト（数値分析）</span>
+                <span>バケットテスト（数値分析）</span>
                 <span className="util-delimiter">/</span>
                 <span>ユーザーインタビュー</span>
                 <span className="util-delimiter">/</span>

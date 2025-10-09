@@ -102,6 +102,5 @@
     inset: auto 0 0 0;
     color: var(--color-text-inverted);
     @include mixins.font-weight(bold);
-    text-align: center;
   }
 }

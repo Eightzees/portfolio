@@ -15,7 +15,7 @@
 
 body {
   @include mixins.font-size(14);
-  line-height: 1.4;
+  line-height: 1.6;
   color: var(--color-text-primary);
 }
 

@@ -1,9 +1,10 @@
-import "./Top.scss";
+import './Top.scss';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import ButtonIconOnly from "../../components/ButtonIconOnly/ButtonIconOnly";
-import Heading from "../../components/Heading/Heading";
+import Badge from '../../components/Badge/Badge';
+import ButtonIconOnly from '../../components/ButtonIconOnly/ButtonIconOnly';
+import Heading from '../../components/Heading/Heading';
 
 interface TopProps {
   isWip: boolean;
@@ -26,29 +27,35 @@ const Top = (props: TopProps) => {
 
       <ul className="Top__list">
         <li className="Top__listItem Top__listItem--search">
-          <a href="#search">
-            <span>Yahoo!検索</span>
+          <a className="Top__listItemLink" href="#search">
+            <span className="Top__listItemLinkDepartment">Yahoo!検索</span>
+            <span className="Top__listItemLinkPeriod">2012〜2015</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--seikatsu">
-          <a href="#seikatsu">
-            <span>Yahoo!生活メディア</span>
+          <a className="Top__listItemLink" href="#seikatsu">
+            <span className="Top__listItemLinkDepartment">Yahoo!生活メディア</span>
+            <span className="Top__listItemLinkPeriod">2015〜2017</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--chie">
-          <a href="#chie">
-            <span>Yahoo!知恵袋</span>
+          <a className="Top__listItemLink" href="#chie">
+            <span className="Top__listItemLinkDepartment">Yahoo!知恵袋</span>
+            <span className="Top__listItemLinkPeriod">2017〜2018</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--pr">
-          <a href="#pr">
-            <span>プロモーション案件</span>
+          <a className="Top__listItemLink" href="#pr">
+            <span className="Top__listItemLinkDepartment">プロモーション案件</span>
+            <span className="Top__listItemLinkPeriod">2012〜2019</span>
           </a>
         </li>
         <li className="Top__listItem Top__listItem--map">
-          <a href="#map">
-            <span>Yahoo!地図</span>
+          <a className="Top__listItemLink" href="#map">
+            <span className="Top__listItemLinkDepartment">Yahoo!地図</span>
+            <span className="Top__listItemLinkPeriod">2019〜</span>
           </a>
+          <Badge text="Current Department" color="brown" />
         </li>
       </ul>
 
@@ -103,11 +110,7 @@ const Top = (props: TopProps) => {
                 <span>DB運用（Oracle, Postgres, MySQL）</span>
               </div>
             </section>
-            <ButtonIconOnly
-              iconType="cross"
-              text="閉じる"
-              onClickHandler={closeProfile}
-            />
+            <ButtonIconOnly iconType="cross" text="閉じる" onClickHandler={closeProfile} />
           </section>
         </div>
       )}

@@ -15,6 +15,7 @@
     gap: 4px;
 
     &Item {
+      position: relative;
       aspect-ratio: 2.4 / 1;
       background-color: var(--color-background-inverted);
 
@@ -43,8 +44,15 @@
         background-size: cover;
       }
 
-      & > a {
+      & > .Badge {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+      }
+
+      &Link {
         display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
@@ -58,8 +66,11 @@
           background-color: var(--color-background-scrim);
           padding: 2px 4px;
           line-height: 1;
-          @include mixins.font-weight(bold);
           @include mixins.font-size(12);
+        }
+
+        &Department {
+          @include mixins.font-weight(bold);
         }
 
         @media (hover: hover) {
@@ -68,7 +79,7 @@
 
           & > span {
             visibility: hidden;
-            @include mixins.font-size(16);
+            @include mixins.font-size(14);
           }
 
           &:hover {

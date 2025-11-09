@@ -1,0 +1,27 @@
+@use "../../assets/styles/mixins";
+
+.Badge {
+  padding: 4px;
+  @include mixins.font-size(12);
+  @include mixins.font-weight(bold);
+  color: var(--color-text-inverted);
+  border-radius: 2px;
+  line-height: 1;
+  border: 1px solid var(--color-text-inverted);
+
+  &--blue {
+    background-color: var(--color-main-blue);
+  }
+  &--brown {
+    background-color: var(--color-main-brown);
+  }
+  &--green {
+    background-color: var(--color-main-green);
+  }
+  &--orange {
+    background-color: var(--color-main-orange);
+  }
+  &--yellow {
+    background-color: var(--color-main-yellow);
+  }
+}

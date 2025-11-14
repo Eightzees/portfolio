@@ -1,19 +1,32 @@
 @use "../../assets/styles/mixins";
 
 .Badge {
-  padding: 4px;
+  display: inline-block;
+  padding: 8px 12px;
   @include mixins.font-size(12);
   @include mixins.font-weight(bold);
-  color: var(--color-text-inverted);
-  border-radius: 2px;
+  border-radius: 16px;
   line-height: 1;
-  border: 1px solid var(--color-text-inverted);
+
+  &--inverted {
+    padding: 4px;
+    border-radius: 2px;
+
+    border: 1px solid var(--color-text-inverted);
+  }
 
   &--blue {
     background-color: var(--color-main-blue);
   }
+
   &--brown {
-    background-color: var(--color-main-brown);
+    background-color: var(--color-background-emphasized-brown);
+    color: var(--color-text-emphasized--brown);
+
+    &.Badge--inverted {
+      background-color: var(--color-main-brown);
+      color: var(--color-text-inverted);
+    }
   }
   &--green {
     background-color: var(--color-main-green);

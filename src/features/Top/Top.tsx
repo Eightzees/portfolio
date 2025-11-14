@@ -55,7 +55,7 @@ const Top = (props: TopProps) => {
             <span className="Top__listItemLinkDepartment">Yahoo!地図</span>
             <span className="Top__listItemLinkPeriod">2019〜</span>
           </a>
-          <Badge text="Current Department" color="brown" />
+          <Badge text="Current Department" color="brown" isInverted={true} />
         </li>
       </ul>
 

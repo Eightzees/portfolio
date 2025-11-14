@@ -1,34 +1,25 @@
-import "./Map.scss";
+import './Map.scss';
 
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import imageBeforeAfter from "../../assets/images/map/before_after.png";
-import imagePOIEndColors from "../../assets/images/map/poiend_colors.png";
-import imagePOIEndFlow from "../../assets/images/map/poiend_flow.png";
-import thumbnailComponents from "../../assets/images/map/thumbnail_components.png";
-import thumbnailGuideline from "../../assets/images/map/thumbnail_guideline.png";
-import Button from "../../components/Button/Button";
-import Divider from "../../components/Divider/Divider";
-import Heading from "../../components/Heading/Heading";
-import Icon from "../../components/Icon/Icon";
-import MediaViewer from "../../components/MediaViewer/MediaViewer";
-import {
-  mediaListForComponents,
-  mediaListForGuideline,
-} from "../../lib/mediaListForMap";
+import imageBeforeAfter from '../../assets/images/map/before_after.png';
+import imagePOIEndColors from '../../assets/images/map/poiend_colors.png';
+import imagePOIEndFlow from '../../assets/images/map/poiend_flow.png';
+import thumbnailComponents from '../../assets/images/map/thumbnail_components.png';
+import thumbnailGuideline from '../../assets/images/map/thumbnail_guideline.png';
+import Badge from '../../components/Badge/Badge';
+import Button from '../../components/Button/Button';
+import Divider from '../../components/Divider/Divider';
+import Heading from '../../components/Heading/Heading';
+import Icon from '../../components/Icon/Icon';
+import MediaViewer from '../../components/MediaViewer/MediaViewer';
+import { mediaListForComponents, mediaListForGuideline } from '../../lib/mediaListForMap';
 
 const Map = () => {
-  const [
-    isVisibleMediaViewerForGuideline,
-    setIsVisibleMediaViewerForGuideline,
-  ] = useState(false);
+  const [isVisibleMediaViewerForGuideline, setIsVisibleMediaViewerForGuideline] = useState(false);
   const [selectedIndexForGuideline, setSelectedIndexForGuideline] = useState(0);
-  const [
-    isVisibleMediaViewerForComponents,
-    setIsVisibleMediaViewerForComponents,
-  ] = useState(false);
-  const [selectedIndexForComponents, setSelectedIndexForComponents] =
-    useState(0);
+  const [isVisibleMediaViewerForComponents, setIsVisibleMediaViewerForComponents] = useState(false);
+  const [selectedIndexForComponents, setSelectedIndexForComponents] = useState(0);
 
   const showMediaViewerForGuideline = useCallback(
     (index: number) => {
@@ -92,16 +83,28 @@ const Map = () => {
         <Divider color="brown" />
 
         <section className="Map__contentsRenewal">
-          <Heading
-            level={2}
-            text="Yahoo!地図（現Yahoo!マップ） フルリニューアル"
-          />
+          <Heading level={2} text="Yahoo!地図（現Yahoo!マップ） フルリニューアル" />
+          <ul className="Map__contentsRenewalTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="短期間フルリニューアル" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="インターフェース・ビジュアルデザイン" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="フロントエンド設計・実装" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="地図エンジンAPI" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="地図デザイン" />
+            </li>
+          </ul>
           <p>
             全社でUS
             Yahoo!のシステムから脱却するプロジェクトが進行し、Yahoo!地図も対応する必要がありました。しかし当時Yahoo!地図は最低限の保守のみで長年放置されておりソースコードや環境も古かったため、もはや手を入れることが難しいということで
-            <span className="util-Text--highlighted">
-              フルスクラッチでリニューアル
-            </span>
+            <span className="util-Text--highlighted">フルスクラッチでリニューアル</span>
             することとなりました。
           </p>
           <p>
@@ -109,55 +112,48 @@ const Map = () => {
             に変更することになり、地図そのものの見た目や実装も含めて完全に新規開発の必要が発生しました。
           </p>
           <div className="Map__contentsRenewalImage">
-            <img
-              src={imageBeforeAfter}
-              alt="Yahoo!地図 Before / After"
-              width="100%"
-              height="auto"
-            />
+            <img src={imageBeforeAfter} alt="Yahoo!地図 Before / After" width="100%" height="auto" />
           </div>
           <p>
             デザイナーとエンジニアのみが存在するプロジェクトだったため、かなり自由度は高かったものの、新しい地図エンジンとの格闘や旧環境が残した仕組みを継承する必要があったりと、旧環境を知るものがいない中でかなり重い作業をする羽目に。
             旧Yahoo!地図の
-            <span className="util-Text--highlighted">
-              残すべき機能・削る機能・新規追加する機能の定義
-            </span>
+            <span className="util-Text--highlighted">残すべき機能・削る機能・新規追加する機能の定義</span>
             を短期間で行う難しさは想像以上。
             <br />
             結果バックエンド実装以外はすべて携わるという経験をすることができました。
           </p>
-          <Button
-            href="https://map.yahoo.co.jp/"
-            color="brown"
-            text="Yahoo!マップ"
-            iconRight="arrow_upper_right"
-          />
+          <Button href="https://map.yahoo.co.jp/" color="brown" text="Yahoo!マップ" iconRight="arrow_upper_right" />
         </section>
 
         <Divider color="brown" />
 
         <section className="Map__contentsGuideline">
           <Heading level={2} text="Yahoo!地図 デザインガイドライン" />
+          <ul className="Map__contentsGuidelineTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="デザインシステム" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="コーディングガイドライン" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="UI Kit" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="UI ライブラリ" />
+            </li>
+          </ul>
+
           <p>
             短期間での開発であったため、ヴィジュアル作成とヴィジュアルの実装をほぼ並行して行いました。
             <br />
             どちらも自分が主担当という強みを活かし、
-            <span className="util-Text--highlighted">
-              最初から実装を考慮したデザインシステムを検討し、実装しながら微調整していく
-            </span>
+            <span className="util-Text--highlighted">最初から実装を考慮したデザインシステムを検討し、実装しながら微調整していく</span>
             ことで、開発にかける時間を短縮することができました。
           </p>
           <div className="Map__contentsGuidelineImage">
-            <button
-              onClick={() => showMediaViewerForGuideline(0)}
-              className="Map__contentsGuidelineImageThumbnail"
-            >
-              <img
-                src={thumbnailGuideline}
-                alt="Yahoo!地図のデザインガイドラインに関する画像"
-                width="100%"
-                height="auto"
-              />
+            <button onClick={() => showMediaViewerForGuideline(0)} className="Map__contentsGuidelineImageThumbnail">
+              <img src={thumbnailGuideline} alt="Yahoo!地図のデザインガイドラインに関する画像" width="100%" height="auto" />
             </button>
             <div className="Map__contentsGuidelineImageTrigger">
               <Button
@@ -172,29 +168,17 @@ const Map = () => {
 
           <p>
             ただしひとたび運用が始まれば、誰がデザイン調整や実装を行うかわからないので、
-            <span className="util-Text--highlighted">
-              「誰でも同じアウトプットでデザインができる」「デザインするときに迷わない」
-            </span>
+            <span className="util-Text--highlighted">「誰でも同じアウトプットでデザインができる」「デザインするときに迷わない」</span>
             ことを指針としてルールを明文化し、デザインパーツの仕様も必要なバリエーションは網羅しつつ極力シンプルになるように考慮しました。
           </p>
           <p>
             地図のための独特なUIパーツを考え出す必要があり、UIが複雑化しがちでした。そのため
-            <span className="util-Text--highlighted">
-              デザインパーツ・モジュール・スタイルはライブラリ化
-            </span>
+            <span className="util-Text--highlighted">デザインパーツ・モジュール・スタイルはライブラリ化</span>
             し、参照すれば手軽にYahoo!地図の画面デザインを行えるような仕組みを整えました。
           </p>
           <div className="Map__contentsGuidelineImage">
-            <button
-              onClick={() => showMediaViewerForComponents(0)}
-              className="Map__contentsGuidelineImageThumbnail"
-            >
-              <img
-                src={thumbnailComponents}
-                alt="Yahoo!地図のUIコンポーネント一覧の画像"
-                width="100%"
-                height="auto"
-              />
+            <button onClick={() => showMediaViewerForComponents(0)} className="Map__contentsGuidelineImageThumbnail">
+              <img src={thumbnailComponents} alt="Yahoo!地図のUIコンポーネント一覧の画像" width="100%" height="auto" />
             </button>
             <div className="Map__contentsGuidelineImageTrigger">
               <Button
@@ -211,40 +195,43 @@ const Map = () => {
         <Divider color="brown" />
 
         <section className="Map__contentsPoiEnd">
-          <Heading level={2} text="施設詳細サービスの脱NAVER対応" />
+          <Heading level={2} text="施設詳細サービスのリローンチ対応" />
+          <ul className="Map__contentsPoiEndTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="短期間開発" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="複数チーム協業" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="デザインシステム" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="UI Kit" />
+            </li>
+          </ul>
+
           <p>
             Yahoo! JAPAN
-            内の様々なサービスで横断的に利用される「施設・店舗の詳細情報を提供する仕組み」を製作するプロジェクトが数年前から進行していましたが、突如NAVERが開発することになり、そのままNAVERによりリリース・運用されていました。
+            内の様々なサービスで横断的に利用される「施設・店舗の詳細情報を提供する仕組み」を製作するプロジェクトが数年前から進行していましたが、突如他社が開発することになり、そのまま他社によりリリース・運用されていました。
             <br />
             その後諸事情によりYahoo!
-            JAPANでその仕組みを巻き取る必要が生じたものの、ソースコード等の共有は契約上不可だったため、リリースされている状態を参考にスクラッチで作り直すことになりました。
+            JAPANでそのサービスを巻き取る必要が生じたものの、ソースコード等の共有は契約上不可だったため、リリースされている状態を参考にスクラッチで作り直すことになりました。
           </p>
           <p>
             人海戦術で短期間で完成させる必要がありかつデザイナーのリソースが全くと言っていいほどなかったため、通常ならデザイナーが担当するはずの見た目に関するコーディングもエンジニアの面々と協力して行いました。自分がデザインしたわけではないものに対して、
-            <span className="util-Text--highlighted">
-              エンジニア含めた全員が理解しやすいように咀嚼しデザインシステムに落とし込む
-            </span>
+            <span className="util-Text--highlighted">エンジニア含めた全員が理解しやすいように咀嚼しデザインシステムに落とし込む</span>
             という、珍しい対応をする機会となりました。システマチックに作られていない部分は適宜調整し、なんとか形になるように落とし込みました。
           </p>
           <div className="Map__contentsPoiEndImage">
-            <img
-              src={imagePOIEndColors}
-              alt="POI End のカラーパレット定義"
-              width="100%"
-              height="auto"
-            />
+            <img src={imagePOIEndColors} alt="POI End のカラーパレット定義" width="100%" height="auto" />
             <p>
               ※すでにリリースされてはいたものの、カラーパレットは再定義。必要に応じて後追いでカラーコードの変更を行えるようなメンテナンス性と、デザイナー陣が迷わないようなセマンティックな色の定義を両立させました。
             </p>
           </div>
 
           <div className="Map__contentsPoiEndImage">
-            <img
-              src={imagePOIEndFlow}
-              alt="POI End画面作成方法"
-              width="100%"
-              height="auto"
-            />
+            <img src={imagePOIEndFlow} alt="POI End画面作成方法" width="100%" height="auto" />
             <p>
               ※リリースされている画面を見ながら必要なデザインパーツをすべて洗い出し、挙動や仕様も含めて定義しなおしたうえで、各画面を構成するようにしています。
             </p>
@@ -284,10 +271,7 @@ const Map = () => {
             </li>
             <li className="Map__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
-              <span>
-                コーディング（React + TypeScript + Redux / React + TypeScript +
-                Next.js / SASS）
-              </span>
+              <span>コーディング（React + TypeScript + Redux / React + TypeScript + Next.js / SASS）</span>
             </li>
             <li className="Map__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
@@ -317,14 +301,7 @@ const Map = () => {
         </section>
 
         <div className="Map__contentsBack">
-          <Button
-            href="./"
-            color="brown"
-            text="トップページへ戻る"
-            iconLeft="arrow_left"
-            isInline={true}
-            target="_self"
-          />
+          <Button href="./" color="brown" text="トップページへ戻る" iconLeft="arrow_left" isInline={true} target="_self" />
         </div>
       </div>
 

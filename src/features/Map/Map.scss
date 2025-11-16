@@ -108,7 +108,11 @@
       }
 
       &Image {
-        margin-top: 24px;
+        margin: 32px 0;
+
+        & > img {
+          vertical-align: bottom;
+        }
 
         & > p {
           margin-top: 8px;

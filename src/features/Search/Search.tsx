@@ -1,24 +1,23 @@
-import "./Search.scss";
+import './Search.scss';
 
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import imageClockNewYork from "../../assets/images/search/clock_new_york.png";
-import imageClockTokyo from "../../assets/images/search/clock_tokyo.png";
-import thumbnailDD from "../../assets/images/search/thumbnail_dd.png";
-import thumbnailPR from "../../assets/images/search/thumbnail_pr.png";
-import Button from "../../components/Button/Button";
-import Divider from "../../components/Divider/Divider";
-import Heading from "../../components/Heading/Heading";
-import Icon from "../../components/Icon/Icon";
-import MediaViewer from "../../components/MediaViewer/MediaViewer";
-import { mediaListForDD, mediaListForPR } from "../../lib/mediaListForSearch";
+import imageClockNewYork from '../../assets/images/search/clock_new_york.png';
+import imageClockTokyo from '../../assets/images/search/clock_tokyo.png';
+import thumbnailDD from '../../assets/images/search/thumbnail_dd.png';
+import thumbnailPR from '../../assets/images/search/thumbnail_pr.png';
+import Badge from '../../components/Badge/Badge';
+import Button from '../../components/Button/Button';
+import Divider from '../../components/Divider/Divider';
+import Heading from '../../components/Heading/Heading';
+import Icon from '../../components/Icon/Icon';
+import MediaViewer from '../../components/MediaViewer/MediaViewer';
+import { mediaListForDD, mediaListForPR } from '../../lib/mediaListForSearch';
 
 const Search = () => {
-  const [isVisibleMediaViewerForDD, setIsVisibleMediaViewerForDD] =
-    useState(false);
+  const [isVisibleMediaViewerForDD, setIsVisibleMediaViewerForDD] = useState(false);
   const [selectedIndexForDD, setSelectedIndexForDD] = useState(0);
-  const [isVisibleMediaViewerForPR, setIsVisibleMediaViewerForPR] =
-    useState(false);
+  const [isVisibleMediaViewerForPR, setIsVisibleMediaViewerForPR] = useState(false);
   const [selectedIndexForPR, setSelectedIndexForPR] = useState(0);
 
   const showMediaViewerForDD = useCallback(
@@ -82,20 +81,31 @@ const Search = () => {
 
         <section className="Search__contentsTest">
           <Heading level={2} text="検索結果画面の改善と数値分析" />
+          <ul className="Search__contentsTestTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="UI改善" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="バケットテスト" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="バケット設計" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="ログ分析" />
+            </li>
+          </ul>
+
           <p>
             数ピクセルの位置移動、サイズ変更、微妙な色の変更で億単位のお金が動く検索結果画面。そのためUIの変更を行う前には必ずバケットライブテスト（ABテスト）を行います。
             <br />
             どんなUIのパターンを何種類試すのか？　
-            <span className="util-Text--highlighted">
-              それぞれどのような効果が期待できるのか？　変更箇所の周辺に影響はないか？
-            </span>
+            <span className="util-Text--highlighted">それぞれどのような効果が期待できるのか？　変更箇所の周辺に影響はないか？</span>
             　どのUIパーツのどんな数値を見たいのか？　あらかじめ設計したうえでテストを走らせます。
           </p>
           <p>
             例えばテキストリストのUIを提供したいとして、1件1件をカードのようにするか、シンプルな仕切り線のみで区切るかをテストする場合、その提供コンテンツの
-            <span className="util-Text--highlighted">
-              目標が何かによってそれぞれの評価は変わり、取得すべきデータも変わって
-            </span>
+            <span className="util-Text--highlighted">目標が何かによってそれぞれの評価は変わり、取得すべきデータも変わって</span>
             きます。
           </p>
           <div className="Search__contentsTestImage">
@@ -138,9 +148,7 @@ const Search = () => {
           </p>
           <p>
             この経験により、
-            <span className="util-Text--highlighted">
-              どんなUIがユーザーに対してどのように作用するのか
-            </span>
+            <span className="util-Text--highlighted">どんなUIがユーザーに対してどのように作用するのか</span>
             、知見を得ることができました。
           </p>
         </section>
@@ -149,100 +157,99 @@ const Search = () => {
 
         <section className="Search__contentsDD">
           <Heading level={2} text="独自検索結果モジュール" />
+          <ul className="Search__contentsDDTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="UI設計" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="バケットテスト" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="バケット設計" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="ログ分析" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="ビジュアルデザイン" />
+            </li>
+          </ul>
+
           <p>
-            ユーザーがオーガニックな検索結果から自身の求めている情報を選ぶ手間を省くため、検索キーワードをもとにユーザーが求めているであろう情報をわかり易くまとめて提供するモジュールの開発も行いました。
+            ユーザーがオーガニックな検索結果から自身の求めている情報を探す手間を省くため、検索キーワードをもとにユーザーが求めているであろう情報をわかり易くまとめて提供するモジュールを開発しました。
             {/* <br />これらは「ダイレクト・ディスプレイ」や「ショートカット」と呼ばれ、ユーザー意図に対して確度の高いものは検索結果の上に、やや確度の下がるものは途中にインサートされたり、最後に表示されます。*/}
           </p>
           <p>
-            検索キーワードのボリュームから、より求めてられているであろう情報を割り出しモジュールを企画するところから始まります。
+            特定の検索キーワードに対する検索数のボリュームから求めてられているであろう情報を割り出し、モジュールを企画するところから始まります。
             <br />
-            <span className="util-Text--highlighted">
-              必要最低限、ただしユーザーにとって有用であろう情報は落とさないよう取捨選択
-            </span>
+            <span className="util-Text--highlighted">必要最低限、ただしユーザーにとって有用であろう情報は落とさないよう取捨選択</span>
             し、それらを見やすく、操作しやすく、
-            <span className="util-Text--highlighted">
-              オーガニックな検索結果を阻害しない
-            </span>
+            <span className="util-Text--highlighted">またオーガニックな検索結果を阻害しない</span>
             ようにデザインにする必要があります。
           </p>
 
           <div className="Search__contentsDDSample">
-            <div className="Search__contentsDDSampleText">
-              <div className="Search__contentsDDSampleTextSearchBox">
-                <span>検索</span>
+            <div className="Search__contentsDDSampleImage">
+              <div className="Search__contentsDDSampleImageText">
+                <div className="Search__contentsDDSampleImageTextSearchBox">
+                  <span className="Search__contentsDDSampleImageTextSearchBoxQuery">東京 ニューヨーク 時差</span>
+                  <span className="Search__contentsDDSampleImageTextSearchBoxButton">検索</span>
+                </div>
+                <Heading level={3} text="東京とニューヨークの時差" />
+                <div className="Search__contentsDDSampleImageTextBody">
+                  <div className="Search__contentsDDSampleImageTextBodyTokyo">
+                    <span className="util-Text--emphasized">東京</span>
+                    <span>7月1日</span>
+                    <span className="Search__contentsDDSampleImageTextBodyTokyoTime">3:25</span>
+                  </div>
+                  <div className="Search__contentsDDSampleImageTextBodyDiff">
+                    <span className="util-Text--emphasized">-13時間</span>
+                  </div>
+                  <div className="Search__contentsDDSampleImageTextBodyNewYork">
+                    <span className="util-Text--emphasized">ニューヨーク</span>
+                    <span>6月30日</span>
+                    <span className="Search__contentsDDSampleImageTextBodyNewYorkTime">14:25</span>
+                  </div>
+                </div>
               </div>
-              <Heading level={3} text="東京とニューヨークの時差" />
-              <div className="Search__contentsDDSampleTextBody">
-                <div className="Search__contentsDDSampleTextBodyTokyo">
-                  <span className="util-Text--emphasized">東京</span>
-                  <span>7月1日</span>
-                  <span className="Search__contentsDDSampleTextBodyTokyoTime">
-                    3:25
-                  </span>
+              <p>VS</p>
+              <div className="Search__contentsDDSampleImageClock">
+                <div className="Search__contentsDDSampleImageClockSearchBox">
+                  <span className="Search__contentsDDSampleImageClockSearchBoxQuery">東京 ニューヨーク 時差</span>
+                  <span className="Search__contentsDDSampleImageClockSearchBoxButton">検索</span>
                 </div>
-                <div className="Search__contentsDDSampleTextBodyDiff">
-                  <span className="util-Text--emphasized">-13時間</span>
-                </div>
-                <div className="Search__contentsDDSampleTextBodyNewYork">
-                  <span className="util-Text--emphasized">ニューヨーク</span>
-                  <span>6月30日</span>
-                  <span className="Search__contentsDDSampleTextBodyNewYorkTime">
-                    14:25
-                  </span>
-                </div>
-              </div>
-            </div>
-            <p>VS</p>
-            <div className="Search__contentsDDSampleClock">
-              <div className="Search__contentsDDSampleClockSearchBox">
-                <span>検索</span>
-              </div>
-              <Heading level={3} text="東京とニューヨークの時差" />
-              <p className="Search__contentsDDSampleClockDiff">-13時間</p>
-              <div className="Search__contentsDDSampleClockBody">
-                <div className="Search__contentsDDSampleClockBodyTokyo">
-                  <img
-                    src={imageClockTokyo}
-                    width="80"
-                    height="auto"
-                    alt="東京の時刻 3時25分"
-                  />
-                  <span className="util-Text--emphasized">東京</span>
-                  <span>7月1日 3:25</span>
-                </div>
-                <div className="Search__contentsDDSampleClockBodyNewYork">
-                  <img
-                    src={imageClockNewYork}
-                    width="80"
-                    height="auto"
-                    alt="ニューヨークの時刻 16時25分"
-                  />
-                  <span className="util-Text--emphasized">ニューヨーク</span>
-                  <span>6月30日 14:25</span>
+                <Heading level={3} text="東京とニューヨークの時差" />
+                <p className="Search__contentsDDSampleImageClockDiff">-13時間</p>
+                <div className="Search__contentsDDSampleImageClockBody">
+                  <div className="Search__contentsDDSampleImageClockBodyTokyo">
+                    <img src={imageClockTokyo} width="80" height="auto" alt="東京の時刻 3時25分" />
+                    <span className="util-Text--emphasized">東京</span>
+                    <span>7月1日 3:25</span>
+                  </div>
+                  <div className="Search__contentsDDSampleImageClockBodyNewYork">
+                    <img src={imageClockNewYork} width="80" height="auto" alt="ニューヨークの時刻 16時25分" />
+                    <span className="util-Text--emphasized">ニューヨーク</span>
+                    <span>6月30日 14:25</span>
+                  </div>
                 </div>
               </div>
             </div>
+            <p>
+              ※「東京 ニューヨーク
+              時差」という検索キーワードに対して掲出するモジュールの例。シンプルに数字で時刻を表示するか、アナログ時計を模して時差を感覚的に表現するか、どちらの成績が良いかをテストしました。
+            </p>
           </div>
+
           <p>
             UIは数パターン用意し、まずはバケットテストを実施します。各パターンのログを分析し、よりユーザーにとってメリットの大きいものを選定の上、正式にリリースします。
           </p>
           <p>
             ただしプロモーションや、季節性・お祭り要素を含むモジュールの場合、時には遊び心を加えたものを提案し実装することもありました。
-            <br />
-            以下はプロモーション要素を含むモジュールの例です。
           </p>
 
           <div className="Search__contentsDDImage">
-            <button
-              onClick={() => showMediaViewerForDD(0)}
-              className="Search__contentsDDImageThumbnail"
-            >
-              <img
-                src={thumbnailDD}
-                alt="Yahoo!検索ショートカットに関する画像"
-                width="100%"
-                height="auto"
-              />
+            <button onClick={() => showMediaViewerForDD(0)} className="Search__contentsDDImageThumbnail">
+              <img src={thumbnailDD} alt="Yahoo!検索ショートカットに関する画像" width="100%" height="auto" />
             </button>
 
             <div className="Search__contentsDDImageTrigger">
@@ -261,45 +268,48 @@ const Search = () => {
 
         <section className="Search__contentsPR">
           <Heading level={2} text="Yahoo!検索のプロモーション活動" />
+
+          <ul className="Search__contentsPRTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="ビジュアルデザイン" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="CMS" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="ポータルサイト運用" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="プロモーション企画" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="blue" text="プロモーションページ制作" />
+            </li>
+          </ul>
+
           <p>
             Yahoo!検索は独自のポータルサイト（「Yahoo!検索ガイド」）を持っていたため、外部の人気ライターの方々に連載をお願いし、
-            <span className="util-Text--highlighted">
-              Yahoo!検索に関連する漫画やおもしろ記事を掲載
-            </span>
-            。ライターの方々のファンや記事を読んだ人々にYahoo!検索を利用してもらうきっかけとなるよう、サイトの更新・運用を担当していました。
-            <br />
-            また担当期間中にサイトのリニューアルも実施し、主にコーディングとフロントエンドを担当しました。
+            <span className="util-Text--highlighted">Yahoo!検索に関連する漫画やおもしろ記事を掲載</span>
+            していました。それだけではなく、チーム内でも検索に関する役立つ小ネタなどを記事として提供するなど、ライターの方々のファンや記事を読んだ人々が
+            <span className="util-Text--highlighted">Yahoo!検索を利用するきっかけとなるようなコンテンツ作り</span>
+            とその提供を同時に行っていました。
           </p>
+          <p>また担当期間中にサイトのリニューアルも実施し、主にコーディングとフロントエンドを担当しました。</p>
 
           <div className="Search__contentsPRLink">
-            <Button
-              href="https://promo-search.yahoo.co.jp/"
-              color="blue"
-              text="Yahoo!検索ガイド"
-              iconRight="arrow_upper_right"
-            />
+            <Button href="https://promo-search.yahoo.co.jp/" color="blue" text="Yahoo!検索ガイド" iconRight="arrow_upper_right" />
             <p>※担当当時のYahoo!検索ガイドからアップデートされています。</p>
           </div>
 
           <p>
             ポータルサイトの運用と並行して
-            <span className="util-Text--highlighted">
-              プランナー・エディターの方々とともにプロモーション案を検討
-            </span>
+            <span className="util-Text--highlighted">プランナー・エディターの方々とともにプロモーション案を検討</span>
             し、オフラインと連動したものも含めいくつもプロモーション案件を担当。主に企画や実装を担いました。
           </p>
 
           <div className="Search__contentsPRImage">
-            <button
-              onClick={() => showMediaViewerForPR(0)}
-              className="Search__contentsPRImageThumbnail"
-            >
-              <img
-                src={thumbnailPR}
-                alt="Yahoo!検索のプロモーション活動に関する画像"
-                width="100%"
-                height="auto"
-              />
+            <button onClick={() => showMediaViewerForPR(0)} className="Search__contentsPRImageThumbnail">
+              <img src={thumbnailPR} alt="Yahoo!検索のプロモーション活動に関する画像" width="100%" height="auto" />
             </button>
 
             <div className="Search__contentsPRImageTrigger">
@@ -356,30 +366,15 @@ const Search = () => {
         </section>
 
         <div className="Search__contentsBack">
-          <Button
-            href="./"
-            color="blue"
-            text="トップページへ戻る"
-            iconLeft="arrow_left"
-            isInline={true}
-            target="_self"
-          />
+          <Button href="./" color="blue" text="トップページへ戻る" iconLeft="arrow_left" isInline={true} target="_self" />
         </div>
       </div>
 
       {isVisibleMediaViewerForDD && (
-        <MediaViewer
-          mediaList={mediaListForDD}
-          selectedIndex={selectedIndexForDD}
-          onClickHandlerForClosing={hideMediaViewerForDD}
-        />
+        <MediaViewer mediaList={mediaListForDD} selectedIndex={selectedIndexForDD} onClickHandlerForClosing={hideMediaViewerForDD} />
       )}
       {isVisibleMediaViewerForPR && (
-        <MediaViewer
-          mediaList={mediaListForPR}
-          selectedIndex={selectedIndexForPR}
-          onClickHandlerForClosing={hideMediaViewerForPR}
-        />
+        <MediaViewer mediaList={mediaListForPR} selectedIndex={selectedIndexForPR} onClickHandlerForClosing={hideMediaViewerForPR} />
       )}
     </div>
   );

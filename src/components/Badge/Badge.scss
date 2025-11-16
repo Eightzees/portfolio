@@ -16,25 +16,51 @@
   }
 
   &--blue {
-    background-color: var(--color-main-blue);
+    background-color: var(--color-background-emphasized-blue);
+    color: var(--color-text-emphasized-blue);
+
+    &.Badge--inverted {
+      background-color: var(--color-main-blue);
+      color: var(--color-text-inverted);
+    }
   }
 
   &--brown {
     background-color: var(--color-background-emphasized-brown);
-    color: var(--color-text-emphasized--brown);
+    color: var(--color-text-emphasized-brown);
 
     &.Badge--inverted {
       background-color: var(--color-main-brown);
       color: var(--color-text-inverted);
     }
   }
+
   &--green {
-    background-color: var(--color-main-green);
+    background-color: var(--color-background-emphasized-green);
+    color: var(--color-text-emphasized-green);
+
+    &.Badge--inverted {
+      background-color: var(--color-main-green);
+      color: var(--color-text-inverted);
+    }
   }
+
   &--orange {
-    background-color: var(--color-main-orange);
+    background-color: var(--color-background-emphasized-orange);
+    color: var(--color-text-emphasized-orange);
+
+    &.Badge--inverted {
+      background-color: var(--color-main-orange);
+      color: var(--color-text-inverted);
+    }
   }
   &--yellow {
-    background-color: var(--color-main-yellow);
+    background-color: var(--color-background-emphasized-yellow);
+    color: var(--color-text-emphasized-yellow);
+
+    &.Badge--inverted {
+      background-color: var(--color-main-yellow);
+      color: var(--color-text-inverted);
+    }
   }
 }

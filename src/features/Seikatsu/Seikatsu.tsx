@@ -1,25 +1,21 @@
-import "./Seikatsu.scss";
+import './Seikatsu.scss';
 
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import imageInterview from "../../assets/images/seikatsu/interview.png";
-import thumbnailRadio from "../../assets/images/seikatsu/thumbnail_radio.png";
-import Button from "../../components/Button/Button";
-import Divider from "../../components/Divider/Divider";
-import Heading from "../../components/Heading/Heading";
-import Icon from "../../components/Icon/Icon";
-import MediaViewer from "../../components/MediaViewer/MediaViewer";
-import {
-  mediaListForBlog,
-  mediaListForRadio,
-} from "../../lib/mediaListForSeikatsu";
+import imageInterview from '../../assets/images/seikatsu/interview.png';
+import thumbnailRadio from '../../assets/images/seikatsu/thumbnail_radio.png';
+import Badge from '../../components/Badge/Badge';
+import Button from '../../components/Button/Button';
+import Divider from '../../components/Divider/Divider';
+import Heading from '../../components/Heading/Heading';
+import Icon from '../../components/Icon/Icon';
+import MediaViewer from '../../components/MediaViewer/MediaViewer';
+import { mediaListForBlog, mediaListForRadio } from '../../lib/mediaListForSeikatsu';
 
 const Seikatsu = () => {
-  const [isVisibleMediaViewerForRadio, setIsVisibleMediaViewerForRadio] =
-    useState(false);
+  const [isVisibleMediaViewerForRadio, setIsVisibleMediaViewerForRadio] = useState(false);
   const [selectedIndexForRadio, setSelectedIndexForRadio] = useState(0);
-  const [isVisibleMediaViewerForBlog, setIsVisibleMediaViewerForBlog] =
-    useState(false);
+  const [isVisibleMediaViewerForBlog, setIsVisibleMediaViewerForBlog] = useState(false);
   const [selectedIndexForBlog, setSelectedIndexForBlog] = useState(0);
 
   const showMediaViewerForRadio = useCallback(
@@ -51,8 +47,7 @@ const Seikatsu = () => {
       <div className="Seikatsu__contents">
         <Heading level={1} text="Yahoo!生活メディア" subText="でのお仕事" />
         <p>
-          ※Yahoo!生活メディアとは、Yahoo!知恵袋/ Yahoo!カーナビ/ Yahoo!乗換案内/
-          Yahoo!ブログ/ Yahoo!ロコ/ Yahoo!地図/
+          ※Yahoo!生活メディアとは、Yahoo!知恵袋/ Yahoo!カーナビ/ Yahoo!乗換案内/ Yahoo!ブログ/ Yahoo!ロコ/ Yahoo!地図/
           Yahoo!ライフマガジン、等を統括していたサービスです。
         </p>
         <section className="Seikatsu__contentsSummary">
@@ -89,35 +84,35 @@ const Seikatsu = () => {
 
         <section className="Seikatsu__contentsRadio">
           <Heading level={2} text="Yahoo!知恵袋と東京FMの連動企画" />
+          <ul className="Seikatsu__contentsRadioTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="ラジオ連動" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="タレント撮影" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="全工程担当" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="クライアントワーク" />
+            </li>
+          </ul>
+
           <p>
             東京FMからラジオ番組のコーナーでYahoo!知恵袋を利用したいとの依頼があり、Yahoo!知恵袋側で企画コーナーのウェブサイトを作製することになりました。
             <br />
             東京FMの要望・イメージなどをヒアリングし、毎週の放送内容に連動してコンテンツを更新できるようなデザインにしました。
           </p>
           <p>
-            タレント撮影時のコンディションがかなり悪く、暗い部屋で照明なし・メイク直しなし・撮影時間5分でチェックもしっかりできず、レタッチしてもあまりクオリティを上げることができなかったので、
-            <span className="util-Text--highlighted">
-              利用可能な素材が限定されたことでビジュアルデザインがかなり難儀
-            </span>
-            しました。
+            タレント撮影が予定通りに行えず（暗い部屋で照明なし・メイク直しなし・撮影時間5分）、チェックの時間も取れなかったため、レタッチしてもあまり撮影素材のクオリティを上げることがでませんでした。
             <br />
-            そのためタレント素材をふんだんに利用する方向ではなく、
-            <span className="util-Text--highlighted">
-              間を持たせるための細かい素材を作ることでなんとかやりくり
-            </span>
-            しながら画面を構成しました。
+            そこで、逆にタレント素材をふんだんに利用する方向ではなく、
+            <span className="util-Text--highlighted">間を持たせるための細かい素材を作ること</span>で画面を構成するようにしました。
           </p>
           <div className="Seikatsu__contentsRadioImage">
-            <button
-              onClick={() => showMediaViewerForRadio(0)}
-              className="Seikatsu__contentsRadioImageThumbnail"
-            >
-              <img
-                src={thumbnailRadio}
-                alt="高橋みなみのひとつのアンサー画像"
-                width="100%"
-                height="auto"
-              />
+            <button onClick={() => showMediaViewerForRadio(0)} className="Seikatsu__contentsRadioImageThumbnail">
+              <img src={thumbnailRadio} alt="高橋みなみのひとつのアンサー画像" width="100%" height="auto" />
             </button>
             <div className="Seikatsu__contentsRadioImageTrigger">
               <Button
@@ -134,10 +129,7 @@ const Seikatsu = () => {
         <Divider color="green" />
 
         <section className="Seikatsu__contentsYowamushi">
-          <Heading
-            level={2}
-            text="Yahoo!カーナビと弱虫ペダルのコラボレーション企画"
-          />
+          <Heading level={2} text="Yahoo!カーナビと弱虫ペダルのコラボレーション企画" />
           <p>
             Yahoo!カーナビが弱虫ペダルとコラボレーションするということで、アプリ内で利用する車のイラストレーション及びキャラクター素材の作製依頼がありました。（アプリ自体の実装や画面構成は別チーム）
             <br />
@@ -145,9 +137,7 @@ const Seikatsu = () => {
           </p>
           <p>
             また車のイラストの加減もなかなか難しく、キャラクターの顔が認識できる程度の大きさかつ運転ナビゲーションを邪魔しないサイズであり、昼と夜どちらでも見やすいカラーリングであり、また真俯瞰だと車の形状の表現が分かりづらくなるのでややパースをつけたり、
-            <span className="util-Text--highlighted">
-              カーナビ特有の工夫が必要
-            </span>
+            <span className="util-Text--highlighted">カーナビ特有の工夫が必要</span>
             でした。
           </p>
           <div className="Seikatsu__contentsYowamushiLink">
@@ -179,10 +169,7 @@ const Seikatsu = () => {
             ビジュアルを完成させたタイミングで他プロジェクトに呼ばれてしまったため、実装開発・リリースには携わることができませんでした。
           </p>
           <div className="Seikatsu__contentsBlogImage">
-            <button
-              onClick={() => showMediaViewerForBlog(0)}
-              className="Seikatsu__contentsBlogImageThumbnail"
-            >
+            <button onClick={() => showMediaViewerForBlog(0)} className="Seikatsu__contentsBlogImageThumbnail">
               <div className="Seikatsu__contentsBlogImageThumbnailCanvas">
                 <iframe width="100%" src="pencil.html"></iframe>
               </div>
@@ -206,16 +193,9 @@ const Seikatsu = () => {
           <p>
             競合サービスと使い勝手を比較するため、ユーザーインタビュー（定性調査）を行いました。リーチしたいターゲット層に合わせてペルソナを設定し、それに基づいた一般ユーザーを数名お呼びして、インタビューとプロトタイプの操作のトラッキングをさせていただきました。
           </p>
-          <p>
-            インタビューとトラッキングの結果をまとめ、カスタマージャーニーマップを作成しました。
-          </p>
+          <p>インタビューとトラッキングの結果をまとめ、カスタマージャーニーマップを作成しました。</p>
           <div className="Seikatsu__contentsInterviewImage">
-            <img
-              src={imageInterview}
-              alt="ユーザーインタビューの画像"
-              width="100%"
-              height="auto"
-            />
+            <img src={imageInterview} alt="ユーザーインタビューの画像" width="100%" height="auto" />
           </div>
         </section>
 
@@ -230,10 +210,7 @@ const Seikatsu = () => {
             </li>
             <li className="Seikatsu__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
-              <span>
-                ビジュアルデザイン（バナー制作 / イラストレーション /
-                サービスデザイン）
-              </span>
+              <span>ビジュアルデザイン（バナー制作 / イラストレーション / サービスデザイン）</span>
             </li>
             <li className="Seikatsu__contentsRollsListItem">
               <Icon type="hyphen" size="medium" color="primary" />
@@ -271,14 +248,7 @@ const Seikatsu = () => {
         </section>
 
         <div className="Seikatsu__contentsBack">
-          <Button
-            href="./"
-            color="green"
-            text="トップページへ戻る"
-            iconLeft="arrow_left"
-            isInline={true}
-            target="_self"
-          />
+          <Button href="./" color="green" text="トップページへ戻る" iconLeft="arrow_left" isInline={true} target="_self" />
         </div>
       </div>
 
@@ -290,11 +260,7 @@ const Seikatsu = () => {
         />
       )}
       {isVisibleMediaViewerForBlog && (
-        <MediaViewer
-          mediaList={mediaListForBlog}
-          selectedIndex={selectedIndexForBlog}
-          onClickHandlerForClosing={hideMediaViewerForBlog}
-        />
+        <MediaViewer mediaList={mediaListForBlog} selectedIndex={selectedIndexForBlog} onClickHandlerForClosing={hideMediaViewerForBlog} />
       )}
     </div>
   );

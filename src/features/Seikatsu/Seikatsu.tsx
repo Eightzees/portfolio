@@ -130,6 +130,18 @@ const Seikatsu = () => {
 
         <section className="Seikatsu__contentsYowamushi">
           <Heading level={2} text="Yahoo!カーナビと弱虫ペダルのコラボレーション企画" />
+          <ul className="Seikatsu__contentsYowamushiTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="キャラクター素材" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="イラストレーション" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="カーナビアプリ" />
+            </li>
+          </ul>
+
           <p>
             Yahoo!カーナビが弱虫ペダルとコラボレーションするということで、アプリ内で利用する車のイラストレーション及びキャラクター素材の作製依頼がありました。（アプリ自体の実装や画面構成は別チーム）
             <br />
@@ -154,6 +166,15 @@ const Seikatsu = () => {
 
         <section className="Seikatsu__contentsBlog">
           <Heading level={2} text="Yahoo!ブログ リニューアル" />
+          <ul className="Seikatsu__contentsBlogTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="リニューアル" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="ビジュアルデザイン" />
+            </li>
+          </ul>
+
           <p>
             Yahoo!ブログをリニューアルするプロジェクトが進行しており、参画したタイミングですでにリニューアルの方針は決定され設計も終わっていたので、ビジュアルデザインから参加しました（ビジュアルデザイナーとして招集されました）。
             <br />
@@ -163,10 +184,7 @@ const Seikatsu = () => {
             </span>
             というオーダーでした。
             <br />
-            既存のYahoo!ブログの特徴をほぼ引き継がないため、全くの新規サービスを作るような感覚で、ビジュアルデザインとしては楽な部類でしたが、Yahoo!ブログを長年愛用してくれているユーザーからのハレーションは大きなものになるであろうという予感はありました。
-          </p>
-          <p>
-            ビジュアルを完成させたタイミングで他プロジェクトに呼ばれてしまったため、実装開発・リリースには携わることができませんでした。
+            既存のYahoo!ブログの特徴をほぼ引き継がないため、全くの新規サービスを作るような感覚でビジュアルを考えることができました。
           </p>
           <div className="Seikatsu__contentsBlogImage">
             <button onClick={() => showMediaViewerForBlog(0)} className="Seikatsu__contentsBlogImageThumbnail">
@@ -190,6 +208,18 @@ const Seikatsu = () => {
 
         <section className="Seikatsu__contentsInterview">
           <Heading level={2} text="Yahoo!ロコ ユーザーインタビュー" />
+          <ul className="Seikatsu__contentsYowamushiTags util-BadgeList">
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="定性調査" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="ユーザーインタビュー" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="green" text="カスタマージャーニーマップ" />
+            </li>
+          </ul>
+
           <p>
             競合サービスと使い勝手を比較するため、ユーザーインタビュー（定性調査）を行いました。リーチしたいターゲット層に合わせてペルソナを設定し、それに基づいた一般ユーザーを数名お呼びして、インタビューとプロトタイプの操作のトラッキングをさせていただきました。
           </p>

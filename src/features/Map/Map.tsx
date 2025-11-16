@@ -86,10 +86,13 @@ const Map = () => {
           <Heading level={2} text="Yahoo!地図（現Yahoo!マップ） フルリニューアル" />
           <ul className="Map__contentsRenewalTags util-BadgeList">
             <li className="util-BadgeList__item">
-              <Badge color="brown" text="短期間フルリニューアル" />
+              <Badge color="brown" text="フルリニューアル" />
             </li>
             <li className="util-BadgeList__item">
               <Badge color="brown" text="インターフェース・ビジュアルデザイン" />
+            </li>
+            <li className="util-BadgeList__item">
+              <Badge color="brown" text="モダン化" />
             </li>
             <li className="util-BadgeList__item">
               <Badge color="brown" text="フロントエンド設計・実装" />

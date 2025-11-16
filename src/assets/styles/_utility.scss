@@ -30,3 +30,10 @@
   @include mixins.font-weight(bold);
   background-color: var(--color-background-emphasized-blue);
 }
+
+.util-BadgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}

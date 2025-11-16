@@ -137,8 +137,7 @@
             align-items: center;
             background-color: var(--color-background-content);
             border-radius: 4px;
-            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08))
-              drop-shadow(0 0 1px rgba(0, 0, 0, 0.02));
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08)) drop-shadow(0 0 1px rgba(0, 0, 0, 0.02));
 
             &:not(:first-of-type) {
               margin-top: 4px;
@@ -186,99 +185,111 @@
 
     &DD {
       &Sample {
-        display: flex;
-        gap: 16px;
-        margin-top: 24px;
+        margin: 32px 0;
 
-        @media (max-width: 767px) {
-          flex-direction: column;
-        }
+        &Image {
+          display: flex;
+          gap: 16px;
 
-        & > p {
-          color: var(--color-text-emphasized-blue);
-          @include mixins.font-weight(bold);
-          @include mixins.font-size(24);
-          text-align: center;
-          align-self: center;
-        }
-        &Text,
-        &Clock {
-          flex: 1;
-          background-color: var(--color-background-emphasized-blue);
-          padding: 16px;
-          color: var(--color-text-emphasized-blue);
-
-          &SearchBox {
-            display: flex;
-            justify-content: flex-end;
-            background-color: var(--color-background-content);
-            border-radius: 4px;
-            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.02),
-              0 1px 1px 0 rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-
-            & > span {
-              background-color: var(--color-motif-blue);
-              color: var(--color-text-inverted);
-              @include mixins.font-weight(bold);
-              padding: 8px;
-              line-height: 1;
-            }
+          @media (max-width: 767px) {
+            flex-direction: column;
           }
 
-          & > .Heading {
-            margin-top: 16px;
-          }
-
-          &Body {
-            margin-top: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-
-            &Tokyo,
-            &NewYork {
-              @include mixins.font-size(12);
-              & > span {
-                display: block;
-              }
-
-              &Time {
-                margin-top: 4px;
-                color: var(--color-text-primary);
-                @include mixins.font-size(24);
-                @include mixins.font-weight(bold);
-              }
-            }
-          }
-        }
-
-        &Clock {
-          &Diff {
-            margin-top: 4px;
-            color: var(--color-text-primary);
-            @include mixins.font-size(16);
+          & > p {
+            color: var(--color-text-emphasized-blue);
             @include mixins.font-weight(bold);
+            @include mixins.font-size(24);
+            text-align: center;
+            align-self: center;
           }
-          &Body {
-            &Tokyo,
-            &NewYork {
-              flex: 1;
-              text-align: center;
+          &Text,
+          &Clock {
+            flex: 1;
+            background-color: var(--color-background-emphasized-blue);
+            padding: 16px;
+            color: var(--color-text-emphasized-blue);
 
-              & img {
-                margin-bottom: 4px;
+            &SearchBox {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              background-color: var(--color-background-content);
+              border-radius: 4px;
+              box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.02), 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+              overflow: hidden;
+
+              &Query {
+                padding: 0 8px;
+              }
+
+              &Button {
+                background-color: var(--color-motif-blue);
+                color: var(--color-text-inverted);
+                @include mixins.font-weight(bold);
+                padding: 8px;
+                line-height: 1;
+              }
+            }
+
+            & > .Heading {
+              margin-top: 16px;
+            }
+
+            &Body {
+              margin-top: 16px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 16px;
+
+              &Tokyo,
+              &NewYork {
+                @include mixins.font-size(12);
+                & > span {
+                  display: block;
+                }
+
+                &Time {
+                  margin-top: 4px;
+                  color: var(--color-text-primary);
+                  @include mixins.font-size(24);
+                  @include mixins.font-weight(bold);
+                }
               }
             }
           }
+
+          &Clock {
+            &Diff {
+              margin-top: 4px;
+              color: var(--color-text-primary);
+              @include mixins.font-size(16);
+              @include mixins.font-weight(bold);
+            }
+            &Body {
+              &Tokyo,
+              &NewYork {
+                flex: 1;
+                text-align: center;
+
+                & img {
+                  margin-bottom: 4px;
+                }
+              }
+            }
+          }
+        }
+        & > p {
+          margin-top: 8px;
+          @include mixins.font-size(12);
+          color: var(--color-text-secondary);
         }
       }
     }
 
     &PR {
       &Link {
-        margin-top: 24px;
+        margin: 24px 0 40px;
 
         & > p {
           margin-top: 8px;
